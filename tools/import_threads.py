@@ -112,6 +112,7 @@ def parse_threads_export(data, username):
             "head": head,
             "text": clean("\n\n".join(x.strip() for x in p["parts"] if x.strip())),
             "date": to_date(p["ts"]),
+            "ts": p["ts"],
             "images": p["images"],
         })
     return out
@@ -124,7 +125,7 @@ def walk_posts(node, out):
         ts = next((node[k] for k in TIME_KEYS if isinstance(node.get(k), (int, float))), None)
         if text and ts:
             t = fix_mojibake(text).strip()
-            out.append({"id": make_id(t), "head": t, "text": clean(t), "date": to_date(ts), "images": 0})
+            out.append({"id": make_id(t), "head": t, "text": clean(t), "date": to_date(ts), "ts": ts, "images": 0})
             return
         for v in node.values():
             walk_posts(v, out)
@@ -200,22 +201,28 @@ def classify(text, cats):
 
 
 def load_existing():
+    """回傳 (現有文章, 上次匯入到的時間戳記)。"""
     if not ARTICLES_JS.exists():
-        return []
+        return [], 0
     src = ARTICLES_JS.read_text(encoding="utf-8")
+    until = re.search(r"^// imported-until: (\d+)", src, re.M)
     m = re.search(r"window\.ARTICLES\s*=\s*(\[.*\]);?\s*$", src, re.S)
     if not m:
-        return []
+        return [], 0
     try:
-        return [a for a in json.loads(m.group(1)) if not a.get("sample")]
+        articles = [a for a in json.loads(m.group(1)) if not a.get("sample")]
     except json.JSONDecodeError:
         print("提醒：原本的 articles.js 不是純 JSON 格式，--merge 會略過舊文章。")
-        return []
+        return [], 0
+    return articles, int(until.group(1)) if until else 0
 
 
-def write_articles(articles, out):
+def write_articles(articles, out, until=0):
+    """until：這次匯入涵蓋到的最後時間，下次 --merge 只會加入在這之後的貼文。"""
     articles.sort(key=lambda a: a.get("date", ""), reverse=True)
     header = "// 由 tools/import_threads.py 產生，可以直接手動修改 tags 或 title。\n"
+    if until:
+        header += f"// imported-until: {int(until)}\n"
     out.write_text(header + "window.ARTICLES = " + json.dumps(articles, ensure_ascii=False, indent=1) + ";\n",
                    encoding="utf-8")
 
@@ -235,13 +242,14 @@ def main():
     username = args.username or site_user
     posts = read_txt(args.input) if args.input.suffix.lower() == ".txt" else read_export(args.input, username)
 
-    existing = load_existing() if args.merge else []
-    latest = max((a.get("date", "") for a in existing), default="")
+    existing, until = load_existing() if args.merge else ([], 0)
+    latest = "" if until else max((a.get("date", "") for a in existing), default="")
     seen = {a["id"] for a in existing} | {a["text"] for a in existing}
     articles = list(existing)
     skipped = 0
     for p in posts:
-        if len(p["head"]) < args.min_length or p["id"] in seen or p["text"] in seen or (latest and p["date"] <= latest):
+        old = (until and p.get("ts", 0) <= until) or (latest and p["date"] <= latest)
+        if len(p["head"]) < args.min_length or p["id"] in seen or p["text"] in seen or old:
             skipped += 1
             continue
         seen.update((p["id"], p["text"]))
@@ -249,7 +257,7 @@ def main():
         if p["images"]:
             a["images"] = p["images"]
         articles.append(a)
-    write_articles(articles, args.out)
+    write_articles(articles, args.out, max([until] + [p.get("ts", 0) for p in posts]))
 
     untagged = [a for a in articles if not a["tags"]]
     print(f"完成！共 {len(articles)} 篇文章寫入 {args.out}（略過 {skipped} 則太短、重複或已匯入的貼文）")
