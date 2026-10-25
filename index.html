@@ -304,6 +304,8 @@
   .reader-body .k{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);display:flex;gap:12px;align-items:center;margin-bottom:16px;}
   .reader-body h3{font-family:var(--serif);font-weight:900;font-size:clamp(24px,3vw,32px);line-height:1.4;margin:0 0 28px;}
   .reader-body .text{white-space:pre-wrap;word-break:break-word;font-size:17px;line-height:2;}
+  .reader-body .text a{color:inherit;text-decoration:underline;text-decoration-color:var(--pine);text-underline-offset:3px;word-break:break-all;}
+  .img-note{font-size:14px;color:var(--ink-2);margin:28px 0 0;padding:12px 16px;background:var(--paper-2);border-left:3px solid var(--pine);}
   .reader-tags{display:flex;gap:8px;flex-wrap:wrap;margin:36px 0 0;padding-top:20px;border-top:1px solid var(--rule);}
   .reader-tags button{background:none;border:1px solid var(--rule);border-radius:999px;padding:3px 14px;font-size:13px;cursor:pointer;}
   .reader-tags button:hover{border-color:var(--rule-strong);}
@@ -608,6 +610,7 @@
       <div class="k" id="rMeta"></div>
       <h3 id="rTitle"></h3>
       <div class="text" id="rText"></div>
+      <p class="img-note" id="rImg" hidden></p>
       <div class="reader-tags" id="rTags"></div>
     </div>
     <div class="reader-foot">
@@ -885,6 +888,7 @@
 
   /* ---------- 閱讀側欄 ---------- */
   const reader = $('reader');
+  const threadsUrl = ((SITE.links || []).find(l => l.id === 'threads') || {}).url || '';
   let openId = null;
   function openArticle(id){
     const a = articles.find(x => x.id === id);
@@ -892,10 +896,13 @@
     openId = id;
     $('rMeta').innerHTML = `<span>${fmtDate(a.date)}</span>${a.sample ? '<span class="badge">範例</span>' : ''}`;
     $('rTitle').textContent = a.title;
-    $('rText').textContent = a.body;
+    $('rText').innerHTML = esc(a.body).replace(/https?:\/\/[^\s<]+/g, u => `<a href="${u}" target="_blank" rel="noopener">${u}</a>`);
+    $('rImg').hidden = !a.images;
+    $('rImg').textContent = a.images ? `這篇原文附有 ${a.images} 張圖片，可以到 Threads 上查看。` : '';
     $('rTags').innerHTML = a.tags.map(t => `<button type="button" data-tag="${t}">${esc(catById[t].name)}</button>`).join('');
-    $('rOrig').hidden = !a.url;
-    if (a.url) $('rOrig').href = a.url;
+    $('rOrig').hidden = !(a.url || threadsUrl);
+    $('rOrig').href = a.url || threadsUrl;
+    $('rOrig').firstChild.textContent = a.url ? '在 Threads 看原文 ' : '到 Threads 看更多 ';
     $('rShare').textContent = '複製這篇的連結';
     const list = current.length ? current : articles;
     const idx = list.findIndex(x => x.id === id);

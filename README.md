@@ -9,7 +9,7 @@
 | `index.html` | 品牌首頁（關於我、文章分類、社群連結） |
 | `practice.html` | 數學練習場（原本的 index.html 搬到這裡） |
 | `data/site.js` | 自我介紹、社群連結、文章分類與自動分類關鍵字 |
-| `data/articles.js` | 文章資料（目前是 3 篇範例） |
+| `data/articles.js` | 文章資料（520 篇，從 Threads 匯出檔整理並人工分類） |
 | `tools/import_threads.py` | 把 Threads 匯出檔轉成 `data/articles.js` 並自動分類 |
 
 ## 匯入 Threads 文章
@@ -19,13 +19,16 @@
 1. 打開 Threads App →「設定」→「帳號」→「下載你的資訊」（會進到 Meta 帳號管理中心）。
 2. 選擇 Threads 帳號，格式選 **JSON**，時間範圍選「所有時間」，送出請求。
 3. 收到通知後下載 `.zip` 檔。
-4. 在這個資料夾執行：
+4. 之後有新文章時，在這個資料夾執行（`.zip` 或裡面的 `threads_and_replies.json` 都可以）：
 
    ```bash
-   python3 tools/import_threads.py ~/Downloads/你的匯出檔.zip
+   python3 tools/import_threads.py ~/Downloads/threads_and_replies.json --merge
    ```
 
-   完成後會顯示每個分類各有幾篇，範例文章會被取代。
+   `--merge` 會保留現有文章和手動調整過的分類，只加入比目前最新一篇更新的貼文，並用關鍵字自動分類。
+   回覆別人的留言不會匯入；自己在主文底下 30 分鐘內接續的串文會併回主文。
+
+> ⚠️ 不要把匯出檔本身放進這個專案：它包含帳號資料與所有留言，專案是公開的。
 
 ### 方法二：手動貼文章
 
