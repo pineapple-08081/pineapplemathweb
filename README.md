@@ -12,7 +12,8 @@
 | `data/site.js` | 自我介紹、社群連結、文章分類與自動分類關鍵字 |
 | `data/articles.js` | 文章資料（266 篇精選，從 Threads 匯出檔人工挑選並分類） |
 | `assets/site.css`、`assets/common.js` | 全站共用的樣式與互動（導覽列、深淺色、進場動畫、照片牆） |
-| `assets/illustrations/` | 鳳梨看板的配圖（向量插畫） |
+| `assets/featured/` | 鳳梨看板的配圖（AI 生成插圖，Z-Image Turbo） |
+| `assets/illustrations/` | 鳳梨看板的備用向量插畫 |
 | `assets/photos/` | 放照片的資料夾 |
 | `tools/import_threads.py` | 把 Threads 匯出檔轉成 `data/articles.js` 並自動分類 |
 
@@ -97,7 +98,7 @@ python3 tools/import_threads.py posts.txt
 - `id`：文章 id（在 `data/articles.js` 找到該篇的 `"id"`）
 - `badge`：看板上的小標籤，例如「熱烈討論」
 - `title`：看板標題，留空就用文章第一行
-- `image`：看板配圖，目前用的是 `assets/illustrations/` 裡的插畫，也可以換成照片
+- `image`：看板配圖，目前用的是 `assets/featured/` 裡的 AI 生成插圖（4:3 比例最合適），也可以換成照片
 
 Threads 匯出檔沒有按讚數和瀏覽數，目前的看板是依照貼文中提到的熱度（例如「快200個人來詢問」）挑選的，可以換成你知道的高流量貼文。
 

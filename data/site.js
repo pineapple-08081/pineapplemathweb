@@ -33,13 +33,13 @@ window.SITE = {
   // 首頁看板：輪流展示的人氣貼文。id 對應 data/articles.js 裡的文章 id，
   // image 是看板配圖，badge 是看板上的小標籤，title 可以替看板另取標題（留空就用文章第一行）。
   featured: [
-    { id: "a37f89ac4d", image: "assets/illustrations/writing.svg", badge: "熱烈討論", title: "「雕字」是必要的嗎？我的寫字要求" },
-    { id: "8bd9beb67d", image: "assets/illustrations/worksheets.svg", badge: "近 200 人索取", title: "學生常嫌的活動單，竟然爆單了" },
-    { id: "51966edaf9", image: "assets/illustrations/puzzle-dishes.svg", badge: "動腦挑戰", title: "除夕推理大挑戰：到底是誰煮了高麗菜？" },
-    { id: "b5cd4c91dd", image: "assets/illustrations/summer-village.svg", badge: "暑假企劃", title: "鳳梨村之夏日盛典：貫穿整個暑假的小任務" },
-    { id: "0dec72cd83", image: "assets/illustrations/newspaper.svg", badge: "免費資源", title: "每天三篇新聞閱讀測驗，帶孩子認識真實世界" },
-    { id: "9d28f3d35a", image: "assets/illustrations/care-puzzle.svg", badge: "帶班心法", title: "安親班裡的特殊生，我這樣陪伴" },
-    { id: "83c632349c", image: "assets/illustrations/walk-home.svg", badge: "暖心故事", title: "「鳳梨，謝謝你今天陪我走回家」" },
+    { id: "a37f89ac4d", image: "assets/featured/writing.webp", badge: "熱烈討論", title: "「雕字」是必要的嗎？我的寫字要求" },
+    { id: "8bd9beb67d", image: "assets/featured/worksheets.webp", badge: "近 200 人索取", title: "學生常嫌的活動單，竟然爆單了" },
+    { id: "51966edaf9", image: "assets/featured/puzzle-dishes.webp", badge: "動腦挑戰", title: "除夕推理大挑戰：到底是誰煮了高麗菜？" },
+    { id: "b5cd4c91dd", image: "assets/featured/summer-village.webp", badge: "暑假企劃", title: "鳳梨村之夏日盛典：貫穿整個暑假的小任務" },
+    { id: "0dec72cd83", image: "assets/featured/newspaper.webp", badge: "免費資源", title: "每天三篇新聞閱讀測驗，帶孩子認識真實世界" },
+    { id: "9d28f3d35a", image: "assets/featured/care-puzzle.webp", badge: "帶班心法", title: "安親班裡的特殊生，我這樣陪伴" },
+    { id: "83c632349c", image: "assets/featured/walk-home.webp", badge: "暖心故事", title: "「鳳梨，謝謝你今天陪我走回家」" },
     { id: "c3f11ff8f7", image: "assets/illustrations/math-roots.svg", badge: "給家長", title: "想救孩子的數學？先找到卡住的根源" },
     { id: "3a5ae207a6", image: "assets/illustrations/stopwatch.svg", badge: "帶班小技巧", title: "一打多的安親班老師，最佳幫手是碼錶" }
   ],
