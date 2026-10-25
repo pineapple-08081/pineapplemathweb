@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+# Threads/Meta 匯出檔含個人資料，不要提交
+*.zip
+threads_and_replies*.json
