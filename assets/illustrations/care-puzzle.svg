@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="兩塊拼圖拼成的愛心：陪伴特殊生">
+<title>兩塊拼圖拼成的愛心：陪伴特殊生</title>
+<g fill="none" stroke="#3A2E1F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+<ellipse cx="200" cy="160" rx="178" ry="124" fill="#FFFFFF" fill-opacity=".45" stroke="none"/>
+
+<path d="M200 262L94 160c-30-30-24-82 18-94 34-10 66 8 88 36z" fill="#FFC83D"/>
+<path d="M200 262l106-102c30-30 24-82-18-94-34-10-66 8-88 36z" fill="#7ECDF0"/>
+<path d="M200 102v40c-16-8-28 4-28 18s12 26 28 18v84" fill="none"/>
+<path d="M200 102c0-30 0-50 0-58" />
+<path d="M200 66c-30-6-46-26-44-46 26 0 44 18 44 46z" fill="#8FD18A"/>
+<path d="M200 54c22-12 42-10 52 4-16 16-38 14-52-4z" fill="#8FD18A"/>
+<path d="M60 90l6 12 12 2-9 8 2 12-11-6-11 6 2-12-9-8 12-2z" fill="#FF8E6E" stroke-width="4"/>
+<path d="M340 210l4 9 9 1-7 6 2 9-8-5-8 5 2-9-7-6 9-1z" fill="#FFF9EC" stroke-width="4"/>
+<circle cx="336" cy="80" r="6" fill="#3A2E1F" stroke="none"/>
+<circle cx="70" cy="230" r="5" fill="#3A2E1F" stroke="none"/>
+
+</g>
+</svg>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="學生常嫌的活動單，近 200 人索取">
+<title>學生常嫌的活動單，近 200 人索取</title>
+<g fill="none" stroke="#3A2E1F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+<ellipse cx="200" cy="160" rx="178" ry="124" fill="#FFFFFF" fill-opacity=".45" stroke="none"/>
+
+<rect x="104" y="74" width="150" height="190" rx="10" fill="#7ECDF0" transform="rotate(-12 180 170)"/>
+<rect x="116" y="66" width="150" height="190" rx="10" fill="#FFE59A" transform="rotate(-4 190 160)"/>
+<g transform="rotate(5 210 160)">
+  <rect x="130" y="60" width="160" height="196" rx="10" fill="#FFF9EC"/>
+  <rect x="150" y="82" width="70" height="14" rx="7" fill="#FFC83D"/>
+  <path d="M150 120h118M150 142h118M150 164h90M150 186h118M150 208h70"/>
+  <circle cx="262" cy="224" r="14" fill="#8FD18A"/>
+  <path d="M255 224l5 5 9-10" stroke-width="4"/>
+</g>
+<path d="M300 112c-14-22-46-6-30 18l30 26 30-26c16-24-16-40-30-18z" fill="#FF8E6E"/>
+<g transform="translate(70 70)">
+  <rect x="-34" y="-22" width="92" height="46" rx="23" fill="#3A2E1F"/>
+  <text x="12" y="10" text-anchor="middle" font-size="26" font-weight="700" fill="#FFF9EC" stroke="none" font-family="Fredoka,'Arial Rounded MT Bold',Arial,sans-serif">200+</text>
+</g>
+<path d="M330 214l40-18-14 40-8-14z" fill="#FFFFFF" stroke-width="4"/>
+<path d="M44 230l34-14-12 32-6-12z" fill="#FFFFFF" stroke-width="4"/>
+<path d="M78 216q30-30 60-12" stroke-width="3" stroke-dasharray="4 8"/>
+
+</g>
+</svg>

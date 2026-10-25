@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="碼錶與作業：一打多的時間分配">
+<title>碼錶與作業：一打多的時間分配</title>
+<g fill="none" stroke="#3A2E1F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+<ellipse cx="200" cy="160" rx="178" ry="124" fill="#FFFFFF" fill-opacity=".45" stroke="none"/>
+
+<rect x="56" y="110" width="96" height="124" rx="8" fill="#FFE59A" transform="rotate(-10 104 172)"/>
+<rect x="70" y="104" width="96" height="124" rx="8" fill="#FFF9EC"/>
+<path d="M86 132h64M86 152h64M86 172h40M86 192h64" stroke-width="4"/>
+<path d="M234 36h28M248 36v20M300 66l14-14"/>
+<circle cx="248" cy="156" r="96" fill="#FFF9EC"/>
+<circle cx="248" cy="156" r="78" fill="#FFC83D" stroke-width="4"/>
+<path d="M248 86v12M248 214v12M178 156h12M306 156h12M198 106l8 8M290 198l8 8M298 106l-8 8M206 198l-8 8" stroke-width="5"/>
+<path d="M248 156V104" stroke-width="7"/>
+<path d="M248 156l36 22" stroke-width="7"/>
+<circle cx="248" cy="156" r="9" fill="#3A2E1F" stroke="none"/>
+<rect x="208" y="176" width="80" height="32" rx="10" fill="#3A2E1F" stroke="none"/>
+<text x="248" y="200" text-anchor="middle" font-size="22" font-weight="700" fill="#FFF9EC" stroke="none" font-family="Fredoka,'Arial Rounded MT Bold',Arial,sans-serif">15:00</text>
+<path d="M352 120h26M358 150h22M352 180h26" stroke-width="5"/>
+
+</g>
+</svg>

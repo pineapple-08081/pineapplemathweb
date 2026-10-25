@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="雕字：田字格裡的永字與鉛筆">
+<title>雕字：田字格裡的永字與鉛筆</title>
+<g fill="none" stroke="#3A2E1F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+<ellipse cx="200" cy="160" rx="178" ry="124" fill="#FFFFFF" fill-opacity=".45" stroke="none"/>
+
+<g transform="rotate(-4 200 150)">
+  <rect x="78" y="58" width="244" height="190" rx="14" fill="#FFF9EC"/>
+  <rect x="104" y="92" width="92" height="92" fill="#FFFFFF"/>
+  <rect x="206" y="92" width="92" height="92" fill="#FFFFFF"/>
+  <path d="M150 92v92M104 138h92M252 92v92M206 138h92" stroke="#FF8E6E" stroke-width="3" stroke-dasharray="6 6"/>
+  <text x="150" y="168" text-anchor="middle" font-size="76" font-weight="700" fill="#3A2E1F" stroke="none" font-family="'Noto Serif TC','Songti TC','PMingLiU',serif">永</text>
+  <text x="252" y="168" text-anchor="middle" font-size="76" font-weight="700" fill="#3A2E1F" fill-opacity=".25" stroke="none" font-family="'Noto Serif TC','Songti TC','PMingLiU',serif">永</text>
+  <path d="M110 208h180M110 226h120" stroke-width="4" opacity=".35"/>
+</g>
+<g transform="rotate(38 290 150)">
+  <rect x="276" y="40" width="28" height="150" rx="4" fill="#FFC83D"/>
+  <rect x="276" y="40" width="28" height="22" rx="4" fill="#FF8E6E"/>
+  <path d="M276 190l14 32 14-32z" fill="#FFE59A"/>
+  <path d="M286 213l4 9 4-9z" fill="#3A2E1F"/>
+</g>
+<path d="M326 52l14 14 26-30" stroke="#E2553B" stroke-width="8"/>
+<path d="M58 92l5 11 12 2-9 8 2 12-10-6-10 6 2-12-9-8 12-2z" fill="#FFC83D" stroke-width="4"/>
+<circle cx="230" cy="262" r="4" fill="#3A2E1F" stroke="none"/><circle cx="246" cy="270" r="3" fill="#3A2E1F" stroke="none"/><circle cx="214" cy="270" r="3" fill="#3A2E1F" stroke="none"/>
+
+</g>
+</svg>

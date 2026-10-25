@@ -31,18 +31,58 @@ window.SITE = {
   ],
 
   // 首頁看板：輪流展示的人氣貼文。id 對應 data/articles.js 裡的文章 id，
-  // badge 是看板上的小標籤，title 可以替看板另取標題（留空就用文章第一行）。
+  // image 是看板配圖，badge 是看板上的小標籤，title 可以替看板另取標題（留空就用文章第一行）。
   featured: [
-    { id: "a37f89ac4d", badge: "熱烈討論", title: "「雕字」是必要的嗎？我的寫字要求" },
-    { id: "8bd9beb67d", badge: "近 200 人索取", title: "學生常嫌的活動單，竟然爆單了" },
-    { id: "51966edaf9", badge: "動腦挑戰", title: "除夕推理大挑戰：到底是誰煮了高麗菜？" },
-    { id: "b5cd4c91dd", badge: "暑假企劃", title: "鳳梨村之夏日盛典：貫穿整個暑假的小任務" },
-    { id: "0dec72cd83", badge: "免費資源", title: "每天三篇新聞閱讀測驗，帶孩子認識真實世界" },
-    { id: "9d28f3d35a", badge: "帶班心法", title: "安親班裡的特殊生，我這樣陪伴" },
-    { id: "83c632349c", badge: "暖心故事", title: "「鳳梨，謝謝你今天陪我走回家」" },
-    { id: "c3f11ff8f7", badge: "給家長", title: "想救孩子的數學？先找到卡住的根源" },
-    { id: "3a5ae207a6", badge: "帶班小技巧", title: "一打多的安親班老師，最佳幫手是碼錶" }
+    { id: "a37f89ac4d", image: "assets/illustrations/writing.svg", badge: "熱烈討論", title: "「雕字」是必要的嗎？我的寫字要求" },
+    { id: "8bd9beb67d", image: "assets/illustrations/worksheets.svg", badge: "近 200 人索取", title: "學生常嫌的活動單，竟然爆單了" },
+    { id: "51966edaf9", image: "assets/illustrations/puzzle-dishes.svg", badge: "動腦挑戰", title: "除夕推理大挑戰：到底是誰煮了高麗菜？" },
+    { id: "b5cd4c91dd", image: "assets/illustrations/summer-village.svg", badge: "暑假企劃", title: "鳳梨村之夏日盛典：貫穿整個暑假的小任務" },
+    { id: "0dec72cd83", image: "assets/illustrations/newspaper.svg", badge: "免費資源", title: "每天三篇新聞閱讀測驗，帶孩子認識真實世界" },
+    { id: "9d28f3d35a", image: "assets/illustrations/care-puzzle.svg", badge: "帶班心法", title: "安親班裡的特殊生，我這樣陪伴" },
+    { id: "83c632349c", image: "assets/illustrations/walk-home.svg", badge: "暖心故事", title: "「鳳梨，謝謝你今天陪我走回家」" },
+    { id: "c3f11ff8f7", image: "assets/illustrations/math-roots.svg", badge: "給家長", title: "想救孩子的數學？先找到卡住的根源" },
+    { id: "3a5ae207a6", image: "assets/illustrations/stopwatch.svg", badge: "帶班小技巧", title: "一打多的安親班老師，最佳幫手是碼錶" }
   ],
+
+  // 里程碑（首頁時間軸）。icon 可用：home、laptop、medal、star、school、video、rocket
+  milestones: [
+    { date: "小時候", icon: "home", title: "在家裡的安親班長大", text: "從小就在家裡的安親班幫忙，學會怎麼吸引孩子的注意力，也讓孩子願意露出笑容。" },
+    { date: "2019", icon: "laptop", title: "開始線上教學", text: "在 AmazingTalker 上課，一堂課賺不到 200 元，卻遇到了很多學生、累積了很多經驗。" },
+    { date: "2024", icon: "medal", title: "第一次帶學生參賽", text: "從安親班找願意挑戰的孩子，靠著線上影片培訓，奧林匹克數學團體競賽拿下銅獎。" },
+    { date: "2025", icon: "medal", title: "銀獎＋銅獎", text: "只準備兩個月、主要看線上課程，團體成績從第一年的後半段，進步到前三分之一。" },
+    { date: "2026.02", icon: "star", title: "Threads 破 100 萬瀏覽、1000 位粉絲", text: "靠著自己一字一句打出來的文字，還有過年期間大家一起玩的幾A幾B 挑戰。" },
+    { date: "2026.03.07", icon: "school", title: "第一個奧數實體班開班", text: "「我不是什麼很厲害的老師，我只是一個靠著教育愛和熱忱，在努力勇敢追夢的人而已。」" },
+    { date: "2026", icon: "medal", title: "學生入選 WMI 銅獎", text: "WMI 世界數學邀請賽，學生入選銅獎。希望有一天，能帶著學生站上更大的舞台。" },
+    { date: "2026.10", icon: "video", title: "鳳梨老師陪你讀數學", text: "第一次線上段考檢討、開始上傳 YouTube 解題影片，國中數學解題群組也來到 84 人。" },
+    { date: "下一站", icon: "rocket", title: "奧林匹克數學團體競賽培訓中", text: "新的一屆孩子正在努力準備，下一個里程碑，正在路上！" }
+  ],
+
+  // 首頁照片牆。把照片放進 assets/photos/，再加一行：
+  //   { src: "assets/photos/檔名.jpg", caption: "照片說明" }
+  // 可以加 size: "big" / "tall" / "wide" / "small" 指定大小，不寫的話會自動排出有大有小的版面。
+  photos: [],
+  photoPlaceholders: ["上課的白板", "學生的創意作品", "戶外教學", "奧數桌遊時間", "孩子們畫的鳳梨老師", "夏日盛典"],
+
+  // 「帶學生征戰比賽」頁面（competitions.html）
+  contest: {
+    intro: "我從安親班裡找願意一起挑戰的孩子，每天回家錄影片給他們在家看，賽前再做模擬訓練。從線上培訓走到第一個奧數實體班，一步一步帶喜歡數學的孩子，走進更高的數學殿堂。",
+    records: [
+      { year: "2024", name: "奧林匹克數學團體競賽", medals: { bronze: 1 }, note: "第一次帶隊參賽，全程線上培訓" },
+      { year: "2025", name: "奧林匹克數學團體競賽", medals: { silver: 1, bronze: 1 }, note: "只準備兩個月，團體成績進步到前三分之一" },
+      { year: "2026", name: "WMI 世界數學邀請賽", medals: { bronze: 1 }, note: "學生入選銅獎" },
+      { year: "2026", name: "奧林匹克數學團體競賽", training: true, note: "新的一屆小中組、小高組培訓中" }
+    ],
+    methods: [
+      { title: "從安親班找願意挑戰的孩子", text: "那時還沒有學生來上奧數課，我就從安親班裡，一個一個找願意和我一起挑戰的孩子。" },
+      { title: "每天錄詳細的線上影片", text: "兩三題就要錄快半個小時，因為我希望講得詳細一點，彌補線上和實體的差距。" },
+      { title: "週六加強與賽前模擬", text: "免費的週六加強課，加上賽前一到兩週的模擬訓練，讓孩子熟悉比賽的節奏。" },
+      { title: "桌遊與動手操作", text: "數學更著重在體驗。奧數課裡有桌遊和操作，孩子自己做出來的那一刻，才是學習的開始。" }
+    ],
+    // 培訓日記：對應 data/articles.js 的文章 id，會連到首頁的文章閱讀頁
+    diary: ["7eeb880bd7", "895f37191a", "e9e09a562d", "90105e8232", "459205d730"],
+    photos: [],
+    photoPlaceholders: ["比賽當天", "頒獎時刻", "賽前模擬訓練", "週六奧數課", "團體合作解題", "獎狀與獎牌"]
+  },
 
   links: [
     { id: "threads",   label: "Threads",   handle: "@a_l_w_a_y_s_joy", note: "教學筆記每週更新", url: "https://www.threads.com/@a_l_w_a_y_s_joy" },
@@ -68,6 +108,8 @@ window.SITE = {
       keywords: ["家長", "爸媽", "媽媽", "爸爸", "聯絡簿", "家庭", "親師"] },
     { id: "resources", name: "免費資源", color: "yellow", desc: "學習單、簡報、考卷與筆記索取",
       keywords: ["索取", "簡報", "考卷", "講義", "閱讀測驗", "錯題本", "教材", "學習單", "筆記"] },
+    { id: "contest", name: "競賽培訓", color: "berry", desc: "帶學生參加數學競賽的培訓紀錄",
+      keywords: ["奧數", "奧林匹克", "WMI", "競賽", "培訓", "比賽"] },
     { id: "stories", name: "教室小故事", color: "coral", desc: "看得見教學方式的真實片段",
       keywords: ["謝謝老師", "感動", "最後一堂課"] }
   ]

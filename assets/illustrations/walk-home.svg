@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="傍晚的放學路上，老師陪學生走回家">
+<title>傍晚的放學路上，老師陪學生走回家</title>
+<g fill="none" stroke="#3A2E1F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+<ellipse cx="200" cy="160" rx="178" ry="124" fill="#FFFFFF" fill-opacity=".45" stroke="none"/>
+
+<circle cx="300" cy="78" r="26" fill="#FFE59A"/>
+<circle cx="312" cy="70" r="22" fill="#FF8E6E" stroke="none" opacity=".0"/>
+<path d="M90 50l3 7 7 1-5 5 1 7-6-4-6 4 1-7-5-5 7-1zM360 130l2 5 5 1-4 3 1 5-4-3-4 3 1-5-4-3 5-1z" fill="#FFF9EC" stroke-width="3"/>
+<path d="M30 240h340"/>
+<path d="M120 262h40M180 262h40M240 262h40" stroke-width="10" stroke="#FFF9EC"/>
+<path d="M120 262h40M180 262h40M240 262h40" stroke-width="2" opacity=".0"/>
+<path d="M60 240V90"/>
+<path d="M60 90q0-14 22-14" />
+<path d="M74 76h24l-6 14H80z" fill="#FFC83D"/>
+<path d="M86 96l-14 50h28z" fill="#FFE59A" stroke="none" opacity=".6"/>
+<g transform="translate(176 0)">
+  <path d="M0 108c-6-14-16-20-26-20 6 10 14 16 22 22M0 106c2-16 0-26 6-34 2 12 0 24-2 34M2 108c8-12 18-16 28-14-8 8-16 14-24 18" fill="#4C9A4A" stroke="#2F6B33" stroke-width="4"/>
+  <ellipse cx="0" cy="132" rx="22" ry="26" fill="#FFC83D"/>
+  <circle cx="-7" cy="130" r="3" fill="#3A2E1F" stroke="none"/><circle cx="7" cy="130" r="3" fill="#3A2E1F" stroke="none"/>
+  <path d="M-6 140q6 5 12 0" stroke-width="3"/>
+  <path d="M0 158v46M0 204l-14 34M0 204l14 34M0 172l-20 22M0 172l26 26"/>
+</g>
+<g transform="translate(232 0)">
+  <circle cx="0" cy="168" r="17" fill="#FFF9EC"/>
+  <circle cx="-5" cy="167" r="2.5" fill="#3A2E1F" stroke="none"/><circle cx="5" cy="167" r="2.5" fill="#3A2E1F" stroke="none"/>
+  <path d="M-4 174q4 3 8 0" stroke-width="3"/>
+  <rect x="2" y="188" width="22" height="26" rx="6" fill="#FF8E6E"/>
+  <path d="M0 185v30M0 215l-10 24M0 215l10 24M0 196l-30 2"/>
+</g>
+
+</g>
+</svg>
