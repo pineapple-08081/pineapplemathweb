@@ -119,6 +119,10 @@ Threads 匯出檔沒有按讚數和瀏覽數，目前的看板是依照貼文中
 | 今日一題 | 可以直接作答的小題目，答對鳳梨會跳起來，導向數學練習場 |
 | 找到我 | Threads、Instagram、YouTube、LINE 社群 |
 
+## 上線前：更新版本號
+
+`index.html` 和 `competitions.html` 引用 `site.css`、`site.js`、`articles.js`、`common.js` 時都帶有 `?v=版本號`。每次修改這些檔案後，把兩個頁面裡的版本號一起換成新的（例如日期），瀏覽器就會重新抓最新的檔案，訪客不用強制重新整理。
+
 ## 上線
 
 到 GitHub repo 的 **Settings → Pages**，Source 選 `main` 分支根目錄，網站就會出現在
