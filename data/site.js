@@ -60,7 +60,13 @@ window.SITE = {
   // 首頁照片牆。把照片放進 assets/photos/，再加一行：
   //   { src: "assets/photos/檔名.jpg", caption: "照片說明" }
   // 可以加 size: "big" / "tall" / "wide" / "small" 指定大小，不寫的話會自動排出有大有小的版面。
-  photos: [],
+  photos: [
+    { src: "assets/photos/contest/2024-team.webp", caption: "2024 鳳梨小隊初登場", size: "half" },
+    { src: "assets/photos/contest/2025-team.webp", caption: "2025 鳳梨小隊 2", size: "half" },
+    { src: "assets/photos/contest/2026-wmi.webp", caption: "2026 WMI 世界數學邀請賽", size: "tall" },
+    { src: "assets/photos/contest/2024-bronze.webp", caption: "2024 團體賽銅獎", size: "tall" },
+    { src: "assets/photos/contest/2026-olympiad.webp", caption: "2026 奧林匹克數學競賽", size: "tall" }
+  ],
   photoPlaceholders: ["上課的白板", "學生的創意作品", "戶外教學", "奧數桌遊時間", "孩子們畫的鳳梨老師", "夏日盛典"],
 
   // 「帶學生征戰比賽」頁面（competitions.html）
@@ -80,8 +86,24 @@ window.SITE = {
     ],
     // 培訓日記：對應 data/articles.js 的文章 id，會連到首頁的文章閱讀頁
     diary: ["7eeb880bd7", "895f37191a", "e9e09a562d", "90105e8232", "459205d730"],
-    photos: [],
-    photoPlaceholders: ["比賽當天", "頒獎時刻", "賽前模擬訓練", "週六奧數課", "團體合作解題", "獎狀與獎牌"]
+    // 比賽相簿：依年份分組。fit: "contain" 代表完整顯示不裁切（適合截圖）；size 多了 "half"（半版）和 "strip"（滿版長條）
+    albums: [
+      { year: "2024", title: "奧林匹克數學團體競賽", results: ["銅獎 × 1"], photos: [
+        { src: "assets/photos/contest/2024-group-chat.webp", caption: "線上培訓的群組", size: "strip", fit: "contain" },
+        { src: "assets/photos/contest/2024-team.webp", caption: "鳳梨小隊初登場", size: "half" },
+        { src: "assets/photos/contest/2024-bronze.webp", caption: "獲得銅獎的夥伴", size: "half" }
+      ] },
+      { year: "2025", title: "奧林匹克數學團體競賽", results: ["銀獎 × 1", "銅獎 × 1"], photos: [
+        { src: "assets/photos/contest/2025-team.webp", caption: "鳳梨小隊 2 團照", size: "half" },
+        { src: "assets/photos/contest/2025-group-chat.webp", caption: "線上培訓的群組", size: "half", fit: "contain" },
+        { src: "assets/photos/contest/2025-silver.webp", caption: "獲得銀獎的夥伴", size: "half" },
+        { src: "assets/photos/contest/2025-bronze.webp", caption: "獲得銅獎的夥伴", size: "half" }
+      ] },
+      { year: "2026", title: "WMI 世界數學邀請賽・奧林匹克數學競賽", results: ["WMI 銅獎 × 1", "團體賽培訓中"], photos: [
+        { src: "assets/photos/contest/2026-wmi.webp", caption: "WMI 世界數學邀請賽・比賽當天", size: "tall" },
+        { src: "assets/photos/contest/2026-olympiad.webp", caption: "奧林匹克數學競賽・比賽當天", size: "tall" }
+      ] }
+    ]
   },
 
   links: [

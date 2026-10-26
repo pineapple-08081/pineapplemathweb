@@ -630,3 +630,24 @@ dialog.lightbox[open]{animation:lbIn .35s var(--bounce);}
 @media (prefers-reduced-motion: reduce){
   .js .method.reveal,.js .page.reveal{opacity:1 !important;}
 }
+
+/* 照片牆：截圖類照片完整顯示、照片很少時置中 */
+.snap.fit-contain .frame{background:#fff;display:flex;align-items:center;justify-content:center;}
+.snap.fit-contain .frame img{object-fit:contain;height:auto;max-height:100%;}
+.gallery.few{grid-template-columns:repeat(4,1fr);max-width:760px;margin:0 auto;}
+.gallery.few .snap-tall{grid-column:span 2;grid-row:span 5;}
+@media (max-width:860px){ .gallery.few{grid-template-columns:repeat(2,1fr);} .gallery.few .snap-tall{grid-column:span 1;grid-row:span 4;} }
+
+/* 比賽頁：依年份分組的相簿 */
+.chapter{margin-bottom:64px;}
+.chapter:last-child{margin-bottom:0;}
+.chapter-head{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin:0 0 30px;}
+.chapter-year{font-family:var(--latin);font-weight:700;font-size:44px;line-height:1;background:var(--ink);color:var(--yellow);border-radius:20px;padding:6px 18px;transform:rotate(-3deg);box-shadow:0 5px 0 var(--yellow-deep);}
+.chapter-info h3{font-family:var(--round);font-weight:700;font-size:22px;line-height:1.4;margin:0;}
+.chapter-info .results{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px;}
+.chapter-info .results span{font-size:13.5px;font-weight:700;background:var(--paper);border:2px solid var(--ink);border-radius:999px;padding:1px 12px;}
+.record .to-album{margin-top:10px;font-weight:700;font-size:14px;color:var(--leaf-dark);text-decoration:none;}
+.record .to-album:hover{text-decoration:underline;}
+.snap-half{grid-column:span 3;grid-row:span 4;}
+.snap-strip{grid-column:span 6;grid-row:span 2;}
+@media (max-width:860px){ .snap-half{grid-column:span 2;grid-row:span 3;} .snap-strip{grid-column:span 2;grid-row:span 2;} }

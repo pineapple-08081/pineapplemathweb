@@ -71,6 +71,7 @@
       ? Array.from({ length: opts.placeholders || 6 }, (_, i) => ({ caption: (opts.placeholderCaptions || [])[i] || '照片即將貼上', placeholder: true }))
       : list;
     el.classList.toggle('is-empty', empty);
+    el.classList.toggle('few', !empty && list.length <= 2);
     el.innerHTML = items.map((p, i) => {
       const size = p.size || LAYOUT[i % LAYOUT.length];
       const decor = DECOR[i % DECOR.length];
@@ -78,7 +79,7 @@
         ? `<div class="ph-empty" data-c="${['yellow','sky','coral','leaf'][i % 4]}">${PLACEHOLDER_ART[i % PLACEHOLDER_ART.length]}<span>${esc(p.caption)}</span></div>`
         : `<img src="${esc(p.src)}" alt="${esc(p.alt || p.caption || '')}" loading="lazy">`;
       const tag = p.placeholder ? 'div' : 'button';
-      return `<${tag} class="snap snap-${size} reveal" ${tag === 'button' ? `type="button" data-i="${i}" aria-label="放大照片：${esc(p.caption || '')}"` : ''} style="--tilt:${TILT[i % TILT.length]}deg;--d:${(i % 6) * .07}s">
+      return `<${tag} class="snap snap-${size}${p.fit === 'contain' ? ' fit-contain' : ''} reveal" ${tag === 'button' ? `type="button" data-i="${i}" aria-label="放大照片：${esc(p.caption || '')}"` : ''} style="--tilt:${TILT[i % TILT.length]}deg;--d:${(i % 6) * .07}s">
         <span class="decor decor-${decor}" aria-hidden="true"></span>
         <span class="frame">${inner}</span>
         ${p.caption && !p.placeholder ? `<span class="cap">${esc(p.caption)}</span>` : ''}

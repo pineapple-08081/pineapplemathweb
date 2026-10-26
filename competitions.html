@@ -152,8 +152,7 @@
         <h2 class="reveal" style="--d:.1s">征戰的<em>每個瞬間</em></h2>
         <p class="reveal" style="--d:.2s">比賽當天、頒獎時刻、賽前的模擬訓練。</p>
       </div>
-      <div class="gallery" id="gallery"></div>
-      <p class="gallery-note" id="galleryNote" hidden>比賽照片整理中，很快就會貼上來！</p>
+      <div id="albums"></div>
     </div>
   </section>
 
@@ -217,6 +216,8 @@
     `<span class="sum-chip">${medalSvg(MEDAL[k][1], MEDAL[k][0][0])}<b>${MEDAL[k][0]} × ${total[k]}</b></span>`).join('') +
     `<span class="sum-chip plain"><b>${events} 項賽事</b></span>`;
 
+  const albumYears = new Set((C.albums || []).map(a => a.year));
+
   /* 比賽成績卡 */
   $('records-list').innerHTML = (C.records || []).map((r, i) => {
     const medals = Object.entries(r.medals || {}).sort((a, b) => ['gold','silver','bronze'].indexOf(a[0]) - ['gold','silver','bronze'].indexOf(b[0]));
@@ -229,6 +230,7 @@
       <h3>${esc(r.name)}</h3>
       ${body}
       <p>${esc(r.note || '')}</p>
+      ${albumYears.has(r.year) ? `<a class="to-album" href="#album-${esc(r.year)}">看 ${esc(r.year)} 的照片 →</a>` : ''}
     </article>`;
   }).join('');
 
@@ -263,9 +265,21 @@
   }).join('');
   if (!diary.length) $('diary').hidden = true;
 
-  /* 比賽相簿 */
-  PM.renderGallery($('gallery'), C.photos, { placeholders: 6, placeholderCaptions: C.photoPlaceholders });
-  $('galleryNote').hidden = (C.photos || []).some(p => p && p.src);
+  /* 比賽相簿：依年份分章 */
+  const albums = (C.albums || []).filter(a => (a.photos || []).length);
+  $('albums').innerHTML = albums.map(a => `
+    <div class="chapter" id="album-${esc(a.year)}">
+      <div class="chapter-head reveal">
+        <span class="chapter-year">${esc(a.year)}</span>
+        <div class="chapter-info">
+          <h3>${esc(a.title)}</h3>
+          <div class="results">${(a.results || []).map(r => `<span>${esc(r)}</span>`).join('')}</div>
+        </div>
+      </div>
+      <div class="gallery"></div>
+    </div>`).join('');
+  [...$('albums').querySelectorAll('.gallery')].forEach((g, i) => PM.renderGallery(g, albums[i].photos));
+  if (!albums.length) $('album').hidden = true;
 
   /* 聯絡方式 */
   $('joinLinks').innerHTML = (SITE.links || []).filter(l => l.url && ['threads', 'line', 'instagram'].includes(l.id)).map(l =>

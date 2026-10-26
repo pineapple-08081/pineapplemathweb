@@ -74,8 +74,11 @@ python3 tools/import_threads.py posts.txt
 1. 把照片放進 `assets/photos/`（建議先縮小到寬 1600px 以內，檔名用英文或數字）。
 2. 在 `data/site.js` 加上照片：
    - 首頁相簿：`photos: [ { src: "assets/photos/class-1.jpg", caption: "上課的白板" } ]`
-   - 比賽相簿：`contest.photos` 用同樣的寫法
-3. 可以加 `size: "big"`、`"tall"`、`"wide"` 或 `"small"` 指定大小；不寫的話會自動排出有大有小、有不同角度的拼貼。
+   - 比賽相簿：`contest.albums`，依年份分組，每組有 `year`、`title`、`results` 和 `photos`
+3. 可以加 `size` 指定大小：`"big"`、`"half"`（半版）、`"tall"`、`"wide"`、`"small"`、`"strip"`（滿版長條）；不寫的話會自動排出有大有小、有不同角度的拼貼。
+4. 截圖這類細長的圖片加上 `fit: "contain"`，就會完整顯示不被裁切。
+
+> 照片裡如果有學生的真實姓名（例如獎狀、聊天截圖），上架前請先霧化。
 
 還沒有照片時，網站會先顯示空白相框。
 
