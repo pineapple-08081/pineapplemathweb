@@ -54,7 +54,7 @@ window.SITE = {
     { date: "2026.03.07", icon: "school", title: "第一個奧數實體班開班", text: "「我不是什麼很厲害的老師，我只是一個靠著教育愛和熱忱，在努力勇敢追夢的人而已。」" },
     { date: "2026", icon: "medal", title: "學生入選 WMI 銅獎", text: "WMI 世界數學邀請賽，學生入選銅獎。希望有一天，能帶著學生站上更大的舞台。" },
     { date: "2026.10", icon: "video", title: "鳳梨老師陪你讀數學", text: "第一次線上段考檢討、開始上傳 YouTube 解題影片，國中數學解題群組也來到 84 人。" },
-    { date: "下一站", icon: "rocket", title: "11/2 奧林匹克數學團體競賽", text: "新的一屆小中組、小高組正在努力培訓，11 月 2 日（日）出賽。下一個里程碑，正在路上！" }
+    { date: "下一站", icon: "rocket", title: "11/22 奧林匹克數學團體競賽", text: "新的一屆小中組、小高組正在努力培訓，11 月 22 日（日）出賽。下一個里程碑，正在路上！" }
   ],
 
   // 首頁照片牆。把照片放進 assets/photos/，再加一行：
@@ -76,7 +76,7 @@ window.SITE = {
       { year: "2024", name: "奧林匹克數學團體競賽", medals: { bronze: 1 }, note: "第一次帶隊參賽，全程線上培訓" },
       { year: "2025", name: "奧林匹克數學團體競賽", medals: { silver: 1, bronze: 1 }, note: "只準備兩個月，團體成績進步到前三分之一" },
       { year: "2026", name: "WMI 世界數學邀請賽", medals: { bronze: 1 }, note: "學生入選銅獎" },
-      { year: "2026", name: "奧林匹克數學團體競賽", training: true, date: "2026-11-02", dateText: "11/2（日）出賽", note: "新的一屆小中組、小高組培訓中" }
+      { year: "2026", name: "奧林匹克數學團體競賽", training: true, date: "2026-11-22", dateText: "11/22（日）出賽", note: "新的一屆小中組、小高組培訓中" }
     ],
     methods: [
       { title: "從安親班找願意挑戰的孩子", text: "那時還沒有學生來上奧數課，我就從安親班裡，一個一個找願意和我一起挑戰的孩子。" },
@@ -99,7 +99,7 @@ window.SITE = {
         { src: "assets/photos/contest/2025-silver.webp", caption: "獲得銀獎的夥伴", size: "half" },
         { src: "assets/photos/contest/2025-bronze.webp", caption: "獲得銅獎的夥伴", size: "half" }
       ] },
-      { year: "2026", title: "WMI 世界數學邀請賽・奧林匹克數學競賽（個人賽）", results: ["WMI 銅獎 × 1", "團體賽 11/2 出賽"], photos: [
+      { year: "2026", title: "WMI 世界數學邀請賽・奧林匹克數學競賽（個人賽）", results: ["WMI 銅獎 × 1", "團體賽 11/22 出賽"], photos: [
         { src: "assets/photos/contest/2026-wmi.webp", caption: "WMI 世界數學邀請賽・比賽當天", size: "tall" },
         { src: "assets/photos/contest/2026-olympiad.webp", caption: "奧林匹克數學競賽（個人賽）・4/19 比賽當天", size: "tall" }
       ] }
