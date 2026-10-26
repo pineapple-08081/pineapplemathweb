@@ -164,7 +164,7 @@
       <div class="letter">
         <div class="sec-head">
           <div class="tag reveal">關於我</div>
-          <h2 class="reveal" style="--d:.1s">嚴格，但孩子們<br><em>都願意跟我學</em></h2>
+          <h2 class="reveal" style="--d:.1s" id="aboutTitle">成績不是絕對，<br><em>過程大於結果</em></h2>
         </div>
         <div id="aboutText"></div>
         <div class="sign reveal" id="sign">— 鳳梨老師</div>
@@ -358,6 +358,10 @@
   }).join('');
   $('tagline').textContent = SITE.tagline || '';
   if (SITE.greeting) $('greeting').textContent = SITE.greeting;
+  if (SITE.aboutTitle && SITE.aboutTitle.length){
+    const t = SITE.aboutTitle;
+    $('aboutTitle').innerHTML = t.map((l, i) => i === t.length - 1 && t.length > 1 ? `<em>${esc(l)}</em>` : esc(l)).join('<br>');
+  }
   $('aboutText').innerHTML = (SITE.about || []).map((p, i) => `<p class="reveal" style="--d:${i * .08}s">${esc(p)}</p>`).join('');
   $('sign').textContent = '— ' + (SITE.teacherName || '鳳梨老師');
   $('facts').innerHTML = (SITE.facts || []).map(f => `<div class="fact"><dt>${esc(f.label)}</dt><dd>${esc(f.value)}</dd></div>`).join('');

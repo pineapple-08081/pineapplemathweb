@@ -63,7 +63,7 @@ python3 tools/import_threads.py posts.txt
 編輯 `data/site.js`：
 
 - `headline`、`tagline`：首頁大標與副標
-- `about`、`facts`：自我介紹段落與旁邊的小資料
+- `aboutTitle`、`about`、`facts`：「關於我」的標題、自我介紹段落與旁邊的小資料
 - `pillars`：「三把鑰匙」的文字（`tag` 對應分類）
 - `greeting`：吉祥物對話框的文字
 - `links`：把 YouTube、Facebook、Email 的 `url` 填上就會出現在網站上（留空不顯示）
