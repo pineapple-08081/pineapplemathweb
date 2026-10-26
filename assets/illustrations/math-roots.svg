@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="數學樹與樹根：找到卡住的根源">
+<title>數學樹與樹根：找到卡住的根源</title>
+<g fill="none" stroke="#3A2E1F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+<ellipse cx="200" cy="160" rx="178" ry="124" fill="#FFFFFF" fill-opacity=".45" stroke="none"/>
+
+<path d="M40 176h320" stroke-dasharray="2 12"/>
+<path d="M190 176V110h20v66" fill="#C98A4B"/>
+<circle cx="200" cy="84" r="58" fill="#8FD18A"/>
+<circle cx="174" cy="72" r="13" fill="#FFC83D"/>
+<text x="174" y="78" text-anchor="middle" font-size="16" font-weight="700" fill="#3A2E1F" stroke="none" font-family="Fredoka,Arial,sans-serif">½</text>
+<circle cx="226" cy="98" r="13" fill="#FF8E6E"/>
+<text x="226" y="104" text-anchor="middle" font-size="16" font-weight="700" fill="#3A2E1F" stroke="none" font-family="Fredoka,Arial,sans-serif">%</text>
+<circle cx="210" cy="56" r="11" fill="#FFF9EC"/>
+<text x="210" y="61" text-anchor="middle" font-size="14" font-weight="700" fill="#3A2E1F" stroke="none" font-family="Fredoka,Arial,sans-serif">x</text>
+<path d="M196 176c-4 24-24 34-48 44M200 176c0 30 0 50-8 70M204 176c6 22 26 32 52 40M200 196c-20 6-40 28-46 52" stroke="#C98A4B"/>
+<circle cx="250" cy="222" r="38" fill="#FFFFFF" fill-opacity=".75"/>
+<path d="M278 250l34 34" stroke-width="12"/>
+<text x="250" y="232" text-anchor="middle" font-size="28" font-weight="700" fill="#3A2E1F" stroke="none" font-family="Fredoka,Arial,sans-serif">×÷</text>
+<path d="M70 100l4 9 9 1-7 6 2 9-8-5-8 5 2-9-7-6 9-1z" fill="#FFC83D" stroke-width="4"/>
+
+</g>
+</svg>
