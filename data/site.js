@@ -44,10 +44,12 @@ window.SITE = {
     { id: "3a5ae207a6", image: "assets/illustrations/stopwatch.svg", badge: "帶班小技巧", title: "一打多的安親班老師，最佳幫手是碼錶" }
   ],
 
-  // 里程碑（首頁時間軸）。icon 可用：home、laptop、medal、star、school、video、rocket
+  // 里程碑（首頁時間軸）。icon 可用：heart、home、laptop、medal、star、school、video、rocket
   milestones: [
-    { date: "小時候", icon: "home", title: "在家裡的安親班長大", text: "從小就在家裡的安親班幫忙，學會怎麼吸引孩子的注意力，也讓孩子願意露出笑容。" },
-    { date: "2019", icon: "laptop", title: "開始線上教學", text: "在 AmazingTalker 上課，一堂課賺不到 200 元，卻遇到了很多學生、累積了很多經驗。" },
+    { date: "小時候", icon: "heart", title: "受到許多好老師的幫助與教誨", text: "一路上遇到許多好老師，他們的幫助與教誨，是我走上教育這條路的起點。" },
+    { date: "2019", icon: "home", title: "開始走進安親班", text: "從助教、櫃檯到帶班老師，安親班裡的每個職位幾乎都做過。" },
+    { date: "2020", icon: "school", title: "到慈馨兒少之家擔任課輔老師", text: "陪伴兒少之家的孩子們課後學習。" },
+    { date: "2021", icon: "laptop", title: "疫情期間在 AmazingTalker 線上教學", text: "因為疫情，開始在 AmazingTalker 上教學，直到疫情結束。一堂課賺不到 200 元，卻遇到了很多學生、累積了很多經驗。" },
     { date: "2024", icon: "medal", title: "第一次帶學生參賽", text: "從安親班找願意挑戰的孩子，靠著線上影片培訓，奧林匹克數學團體競賽拿下銅獎。" },
     { date: "2025", icon: "medal", title: "銀獎＋銅獎", text: "只準備兩個月、主要看線上課程，團體成績從第一年的後半段，進步到前三分之一。" },
     { date: "2026.02", icon: "star", title: "Threads 破 100 萬瀏覽、1000 位粉絲", text: "靠著自己一字一句打出來的文字，還有過年期間大家一起玩的幾A幾B 挑戰。" },

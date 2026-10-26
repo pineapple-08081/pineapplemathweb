@@ -92,7 +92,7 @@ python3 tools/import_threads.py posts.txt
 
 ## 里程碑
 
-`data/site.js` 的 `milestones`，每一筆有 `date`、`title`、`text` 和 `icon`（home、laptop、medal、star、school、video、rocket）。
+`data/site.js` 的 `milestones`，每一筆有 `date`、`title`、`text` 和 `icon`（heart、home、laptop、medal、star、school、video、rocket）。
 
 ## 鳳梨看板（首頁輪播）
 
