@@ -651,3 +651,7 @@ dialog.lightbox[open]{animation:lbIn .35s var(--bounce);}
 .snap-half{grid-column:span 3;grid-row:span 4;}
 .snap-strip{grid-column:span 6;grid-row:span 2;}
 @media (max-width:860px){ .snap-half{grid-column:span 2;grid-row:span 3;} .snap-strip{grid-column:span 2;grid-row:span 2;} }
+.countdown{display:flex;flex-direction:column;gap:2px;background:var(--paper);border:2.5px solid var(--ink);border-radius:16px;padding:8px 12px;margin:4px 0 6px;box-shadow:0 3px 0 var(--ink);}
+.countdown .cd-date{font-weight:900;font-size:15px;}
+.countdown .cd-left{font-size:14px;color:var(--ink-2);}
+.countdown .cd-left b{font-family:var(--latin);font-size:24px;color:var(--coral);margin:0 2px;}

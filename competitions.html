@@ -217,12 +217,21 @@
     `<span class="sum-chip plain"><b>${events} 項賽事</b></span>`;
 
   const albumYears = new Set((C.albums || []).map(a => a.year));
+  // 比賽倒數：依今天日期自動計算
+  function countdown(r){
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    const [y, m, d] = r.date.split('-').map(Number);
+    const days = Math.round((new Date(y, m - 1, d) - today) / 86400000);
+    const label = days > 0 ? `倒數 <b>${days}</b> 天` : days === 0 ? '今天比賽，加油！' : '比賽結束，等待成績公布';
+    return `<div class="countdown"><span class="cd-date">${esc(r.dateText || r.date)}</span><span class="cd-left">${label}</span></div>`;
+  }
 
   /* 比賽成績卡 */
   $('records-list').innerHTML = (C.records || []).map((r, i) => {
     const medals = Object.entries(r.medals || {}).sort((a, b) => ['gold','silver','bronze'].indexOf(a[0]) - ['gold','silver','bronze'].indexOf(b[0]));
     const body = r.training
-      ? `<div class="training"><span class="run">${'<svg viewBox="0 0 200 260" aria-hidden="true"><use href="#pine"/></svg>'}</span><span class="bar"><i></i></span><b>培訓中</b></div>`
+      ? `<div class="training"><span class="run">${'<svg viewBox="0 0 200 260" aria-hidden="true"><use href="#pine"/></svg>'}</span><span class="bar"><i></i></span><b>培訓中</b></div>
+         ${r.date ? countdown(r) : ''}`
       : `<div class="medal-row">${medals.map(([k, n]) => Array.from({ length: n }, () => medalSvg(MEDAL[k][1], MEDAL[k][0][0])).join('')).join('')}</div>
          <div class="medal-text">${medals.map(([k, n]) => `${MEDAL[k][0]} × ${n}`).join('　')}</div>`;
     return `<article class="record reveal${r.training ? ' is-training' : ''}" style="--d:${i * .1}s">
@@ -230,7 +239,7 @@
       <h3>${esc(r.name)}</h3>
       ${body}
       <p>${esc(r.note || '')}</p>
-      ${albumYears.has(r.year) ? `<a class="to-album" href="#album-${esc(r.year)}">看 ${esc(r.year)} 的照片 →</a>` : ''}
+      ${albumYears.has(r.year) && !r.training ? `<a class="to-album" href="#album-${esc(r.year)}">看 ${esc(r.year)} 的照片 →</a>` : ''}
     </article>`;
   }).join('');
 
