@@ -132,6 +132,8 @@ window.SITE = {
       keywords: ["家長", "爸媽", "媽媽", "爸爸", "聯絡簿", "家庭", "親師"] },
     { id: "resources", name: "免費資源", color: "yellow", desc: "學習單、簡報、考卷與筆記索取",
       keywords: ["索取", "簡報", "考卷", "講義", "閱讀測驗", "錯題本", "教材", "學習單", "筆記"] },
+    { id: "olympiad", name: "奧數課程分享", color: "sky", desc: "週六奧數課的教學片段、桌遊與奧數題",
+      keywords: ["奧數", "數獨", "一筆畫", "閃靈快手", "三視圖", "正方體", "桌遊"] },
     { id: "contest", name: "競賽培訓", color: "berry", desc: "帶學生參加數學競賽的培訓紀錄",
       keywords: ["奧數", "奧林匹克", "WMI", "競賽", "培訓", "比賽"] },
     { id: "stories", name: "教室小故事", color: "coral", desc: "看得見教學方式的真實片段",
