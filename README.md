@@ -94,6 +94,10 @@ python3 tools/import_threads.py posts.txt
 
 `data/site.js` 的 `milestones`，每一筆有 `date`、`title`、`text` 和 `icon`（heart、home、laptop、medal、star、school、video、rocket）。
 
+## 我的教學工具
+
+`data/site.js` 的 `tools`，每一個工具有 `name`、`subtitle`、`text`、`steps`（使用步驟）、`chips`（小標籤）、`url`（網站網址）、`cta`（按鈕文字）和 `post`（介紹文的文章 id，會出現「看介紹文」按鈕）。`badge` 可以寫 `"NEW"`，不需要時刪掉即可。
+
 ## 鳳梨看板（首頁輪播）
 
 `data/site.js` 的 `featured` 決定看板要輪播哪些文章，每則停留 5 秒後往右滑到下一則，每次打開網頁順序都會隨機打亂。
@@ -115,6 +119,7 @@ Threads 匯出檔沒有按讚數和瀏覽數，目前的看板是依照貼文中
 | 關於我 | 自我介紹與教學信念 |
 | 里程碑 | 小路時間軸，捲動時鳳梨會沿著小路往下走 |
 | 教室相簿 | 拍立得拼貼照片牆，點開可放大瀏覽 |
+| 我的教學工具 | 自己開發的教學網站（例如「換我當老師」），資料在 `data/site.js` 的 `tools` |
 | 教學筆記 | 9 個主題分頁、搜尋、側邊閱讀欄（可上下篇） |
 | 今日一題 | 可以直接作答的小題目，答對鳳梨會跳起來，導向數學練習場 |
 | 找到我 | Threads、Instagram、YouTube、LINE 社群 |
