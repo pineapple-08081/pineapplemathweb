@@ -409,6 +409,26 @@ dialog.reader.closing::backdrop{animation:fade .3s reverse forwards;}
 .side-card .btn{align-self:flex-start;margin-top:auto;}
 @media (max-width:860px){ .daily-grid{grid-template-columns:1fr;gap:40px;} .q-card{padding:28px 20px;} }
 
+/* ---------- 教學工具 ---------- */
+.tool{
+  display:grid;grid-template-columns:.9fr 1.1fr;gap:28px;align-items:center;max-width:1000px;margin:0 auto 28px;
+  background:var(--paper);border:3px solid var(--ink);border-radius:32px;box-shadow:0 10px 0 var(--ink);padding:30px 36px;
+}
+.tool-art{background:var(--sky);border:3px solid #3A2E1F;border-radius:24px;aspect-ratio:4/3;display:grid;place-items:center;overflow:hidden;}
+.paper-art{width:86%;height:auto;transition:transform .5s var(--bounce);}
+.tool:hover .paper-art{transform:rotate(-3deg) scale(1.04);}
+.tool-badge{display:inline-block;background:var(--coral);color:#3A2E1F;border:2px solid #3A2E1F;border-radius:999px;padding:1px 12px;font-family:var(--latin);font-weight:700;font-size:13px;letter-spacing:.08em;transform:rotate(-3deg);}
+.tool h3{font-family:var(--round);font-weight:700;font-size:clamp(28px,3.4vw,38px);line-height:1.2;margin:8px 0 2px;}
+.tool .tool-sub{font-family:var(--hand);font-weight:700;font-size:19px;color:var(--leaf-dark);margin:0 0 10px;}
+.tool p{margin:0 0 12px;}
+.tool-steps{list-style:none;counter-reset:st;margin:14px 0;padding:0;display:grid;gap:8px;}
+.tool-steps li{counter-increment:st;display:flex;align-items:center;gap:10px;font-weight:700;}
+.tool-steps li::before{content:counter(st);flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--yellow);color:#3A2E1F;border:2px solid #3A2E1F;display:grid;place-items:center;font-family:var(--latin);font-size:15px;}
+.tool-chips{list-style:none;margin:0 0 18px;padding:0;display:flex;flex-wrap:wrap;gap:8px;}
+.tool-chips li{background:var(--yellow-soft);color:#3A2E1F;border-radius:999px;padding:2px 12px;font-size:14px;font-weight:700;}
+.tool-actions{display:flex;align-items:center;flex-wrap:wrap;gap:18px;}
+@media (max-width:820px){ .tool{grid-template-columns:1fr;padding:22px 20px;gap:20px;} }
+
 /* ---------- 找到我 ---------- */
 .follow-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
 .f-tile{

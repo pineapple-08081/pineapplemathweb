@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=LXGW+WenKai+TC:wght@400;700&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Huninn&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=2026.10.26-1">
+<link rel="stylesheet" href="assets/site.css?v=2026.10.29-2">
 <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -58,6 +58,7 @@
         <a href="index.html#milestones">里程碑</a>
         <a href="index.html#notes">教學筆記</a>
         <a href="index.html#album">相簿</a>
+        <a href="index.html#tools">教學工具</a>
         <a class="contest-link" href="competitions.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10v5a5 5 0 0 1-10 0z" fill="currentColor"/><path d="M7 5H3.5a3.5 3.5 0 0 0 3.8 4M17 5h3.5a3.5 3.5 0 0 1-3.8 4M12 13v4M8 21h8l-1-4H9z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>帶學生征戰比賽</a>
         <a href="index.html#follow">找到我</a>
         <a class="cta" href="practice.html">數學練習場</a>
@@ -226,6 +227,18 @@
     </div>
   </section>
 
+  <!-- 教學工具 -->
+  <section class="sec" id="tools">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="tag reveal"><svg viewBox="0 0 200 260" aria-hidden="true"><use href="#pine"/></svg>我的教學工具</div>
+        <h2 class="reveal" style="--d:.1s">自己做的小工具，<em>讓複習變好玩</em></h2>
+        <p class="reveal" style="--d:.2s">在教室裡試過、孩子們玩得開心，才放上來跟大家分享。</p>
+      </div>
+      <div id="toolsList"></div>
+    </div>
+  </section>
+
   <!-- 今日一題 -->
   <section class="daily sec lattice" id="daily">
     <div class="wrap">
@@ -274,7 +287,7 @@
       <div>
         <p class="big reveal">每個孩子都能學會數學，<br>只是需要<em>對的講法</em>。</p>
         <nav class="foot-links" aria-label="頁尾選單">
-          <a href="#about">關於我</a><a href="#milestones">里程碑</a><a href="#notes">教學筆記</a><a href="#album">相簿</a><a href="competitions.html">帶學生征戰比賽</a><a href="practice.html">數學練習場</a><a href="#follow">找到我</a>
+          <a href="#about">關於我</a><a href="#milestones">里程碑</a><a href="#notes">教學筆記</a><a href="#album">相簿</a><a href="#tools">教學工具</a><a href="competitions.html">帶學生征戰比賽</a><a href="practice.html">數學練習場</a><a href="#follow">找到我</a>
         </nav>
       </div>
       <svg class="foot-mascot" aria-hidden="true" viewBox="0 0 200 260"><use href="#pine"/></svg>
@@ -310,9 +323,9 @@
   </div>
 </dialog>
 
-<script src="data/site.js?v=2026.10.26-1"></script>
-<script src="assets/common.js?v=2026.10.26-1"></script>
-<script src="data/articles.js?v=2026.10.26-1"></script>
+<script src="data/site.js?v=2026.10.29-2"></script>
+<script src="assets/common.js?v=2026.10.29-2"></script>
+<script src="data/articles.js?v=2026.10.29-2"></script>
 <script>
 (function(){
   const SITE = window.SITE || {};
@@ -390,6 +403,46 @@
     if (!b) return;
     setTag(b.dataset.tag);
     $('notes').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+  });
+
+  /* ---------- 教學工具 ---------- */
+  // 考卷插圖：紅筆圈出錯誤、打勾
+  const PAPER_ART = `<svg class="paper-art" viewBox="0 0 320 260" aria-hidden="true">
+    <rect x="58" y="22" width="190" height="226" rx="14" fill="#FFF9EC" stroke="#3A2E1F" stroke-width="5" transform="rotate(-4 153 135)"/>
+    <g transform="rotate(-4 153 135)" stroke="#3A2E1F" stroke-width="4" stroke-linecap="round" fill="none">
+      <path d="M84 56h90"/><path d="M84 92h60M160 92h40"/><path d="M84 132h70M170 132h30"/><path d="M84 172h50M150 172h50"/><path d="M84 210h80"/>
+      <path d="M206 84l8 9 16-18" stroke="#E5533D" stroke-width="6"/>
+      <ellipse cx="185" cy="132" rx="26" ry="15" stroke="#E5533D" stroke-width="5"/>
+      <path d="M206 164l8 9 16-18" stroke="#E5533D" stroke-width="6"/>
+    </g>
+    <g transform="rotate(32 262 130)">
+      <rect x="250" y="40" width="24" height="150" rx="8" fill="#FF8E6E" stroke="#3A2E1F" stroke-width="5"/>
+      <path d="M250 190l12 30 12-30z" fill="#FFF9EC" stroke="#3A2E1F" stroke-width="5" stroke-linejoin="round"/>
+      <path d="M258 210l4 10 4-10z" fill="#E5533D"/>
+      <rect x="250" y="40" width="24" height="22" rx="6" fill="#3A2E1F"/>
+    </g>
+    <circle cx="70" cy="214" r="34" fill="#FFC83D" stroke="#3A2E1F" stroke-width="5"/>
+    <path d="M54 214l11 11 21-22" fill="none" stroke="#3A2E1F" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>`;
+  $('toolsList').innerHTML = (SITE.tools || []).map((t, i) => `
+    <article class="tool reveal" style="--d:${i * .1}s">
+      <div class="tool-art">${PAPER_ART}</div>
+      <div class="tool-body">
+        ${t.badge ? `<span class="tool-badge">${esc(t.badge)}</span>` : ''}
+        <h3>${esc(t.name)}</h3>
+        <p class="tool-sub">${esc(t.subtitle || '')}</p>
+        <p>${esc(t.text || '')}</p>
+        ${(t.steps || []).length ? `<ol class="tool-steps">${t.steps.map(s => `<li>${esc(s)}</li>`).join('')}</ol>` : ''}
+        ${(t.chips || []).length ? `<ul class="tool-chips">${t.chips.map(c => `<li>${esc(c)}</li>`).join('')}</ul>` : ''}
+        <div class="tool-actions">
+          <a class="btn yellow" href="${esc(t.url)}" target="_blank" rel="noopener">${esc(t.cta || '前往網站')} <span class="arr">→</span></a>
+          ${t.post && articles.some(a => a.id === t.post) ? `<button class="text-btn" type="button" data-post="${esc(t.post)}">看介紹文</button>` : ''}
+        </div>
+      </div>
+    </article>`).join('');
+  $('toolsList').addEventListener('click', e => {
+    const b = e.target.closest('[data-post]');
+    if (b) openArticle(b.dataset.post);
   });
 
   /* ---------- 找到我 ---------- */

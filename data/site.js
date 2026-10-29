@@ -108,6 +108,22 @@ window.SITE = {
     ]
   },
 
+  // 我開發的教學工具，會出現在首頁的「教學工具」區塊
+  tools: [
+    {
+      id: "teacher-turn",
+      name: "換我當老師",
+      badge: "NEW",
+      subtitle: "用「批改考卷」來複習觀念",
+      text: "每個孩子會拿到一份「已經寫好」的考卷，換他們當小老師，在沒有解答的情況下把錯的地方全部找出來。能不能改對，就知道觀念是不是真的懂了。",
+      steps: ["拿到一份寫好的考卷", "當小老師，找出錯誤", "改完馬上對答案"],
+      chips: ["國小數學", "複習觀念", "網路版"],
+      url: "https://it-s-my-turn-to-be-teacher.web.app",
+      cta: "開始批改",
+      post: "422efb1081"
+    }
+  ],
+
   links: [
     { id: "threads",   label: "Threads",   handle: "@a_l_w_a_y_s_joy", note: "教學筆記每週更新", url: "https://www.threads.com/@a_l_w_a_y_s_joy" },
     { id: "instagram", label: "Instagram", handle: "@a_l_w_a_y_s_joy", note: "教室日常與圖文",   url: "https://www.instagram.com/a_l_w_a_y_s_joy/" },
