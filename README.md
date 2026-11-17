@@ -7,15 +7,18 @@
 | 檔案 | 用途 |
 | --- | --- |
 | `index.html` | 品牌首頁（看板、教學特色、里程碑、相簿、教學筆記、社群連結） |
+| `junior.html` | 國中數學專區：會考倒數、每日三題、國一到國三重點筆記、學習資源 |
 | `competitions.html` | 帶學生征戰比賽：得獎紀錄、培訓方式、培訓日記、比賽相簿 |
 | `practice.html` | 數學練習場（原本的 index.html 搬到這裡） |
 | `data/site.js` | 自我介紹、社群連結、文章分類與自動分類關鍵字 |
-| `data/articles.js` | 文章資料（249 篇精選，從 Threads 匯出檔人工挑選並分類） |
+| `data/articles.js` | 文章資料（271 篇精選，從 Threads 匯出檔人工挑選並分類） |
+| `data/daily.js` | 每日三題的資料（匯入工具自動整理，顯示在國中數學專區） |
 | `assets/site.css`、`assets/common.js` | 全站共用的樣式與互動（導覽列、深淺色、進場動畫、照片牆） |
 | `assets/featured/` | 鳳梨看板的配圖（AI 生成插圖，Z-Image Turbo） |
 | `assets/illustrations/` | 鳳梨看板的備用向量插畫 |
 | `assets/photos/` | 放照片的資料夾 |
 | `tools/import_threads.py` | 把 Threads 匯出檔轉成 `data/articles.js` 並自動分類 |
+| `sitemap.xml`、`robots.txt` | 給 Google 等搜尋引擎看的網站地圖 |
 
 ## 匯入 Threads 文章
 
@@ -32,6 +35,7 @@
 
    `--merge` 會保留現有文章和手動調整過的分類，只加入比目前最新一篇更新的貼文，並用關鍵字自動分類。
    回覆別人的留言不會匯入；自己在主文底下 30 分鐘內接續的串文會併回主文。
+   「🔥每日三題…會考倒數」和「本日觀念：」開頭的貼文不會進教學筆記，而是整理到 `data/daily.js`，自動出現在國中數學專區。
 
 > ⚠️ 不要把匯出檔本身放進這個專案：它包含帳號資料與所有留言，專案是公開的。
 
@@ -98,6 +102,17 @@ python3 tools/import_threads.py posts.txt
 
 `data/site.js` 的 `tools`，每一個工具有 `name`、`subtitle`、`text`、`steps`（使用步驟）、`chips`（小標籤）、`url`（網站網址）、`cta`（按鈕文字）和 `post`（介紹文的文章 id，會出現「看介紹文」按鈕）。`badge` 可以寫 `"NEW"`，不需要時刪掉即可。
 
+## 國中數學專區
+
+`junior.html`，資料在 `data/site.js` 的 `junior`：
+
+- `intro`：頁首的介紹文字
+- `exam`：會考日期，頁首和每日三題的「會考倒數」都依這個日期自動計算
+- `notes`：國一、國二、國三的重點筆記卡片（`topics` 單元、`tip` 鳳梨老師的叮嚀、`post` 筆記貼文的文章 id、`videos` 影片連結）
+- `elementary`：國小 3–6 年級筆記的入口
+
+每日三題不用手動維護：匯入 Threads 時會自動把「每日三題」和「本日觀念」的貼文配對，依序當作國一、國二、國三的觀念。題目和詳解的圖片在 Threads 上，匯出檔裡沒有圖片網址。
+
 ## 鳳梨看板（首頁輪播）
 
 `data/site.js` 的 `featured` 決定看板要輪播哪些文章，每則停留 5 秒後往右滑到下一則，每次打開網頁順序都會隨機打亂。
@@ -106,8 +121,9 @@ python3 tools/import_threads.py posts.txt
 - `badge`：看板上的小標籤，例如「熱烈討論」
 - `title`：看板標題，留空就用文章第一行
 - `image`：看板配圖，目前用的是 `assets/featured/` 裡的 AI 生成插圖（4:3 比例最合適），也可以換成照片
+- 想放網站裡的其他頁面或外部網站時，不寫 `id`，改寫 `href`、`text`（內文）、`cta`（按鈕文字）和 `color`
 
-Threads 匯出檔沒有按讚數和瀏覽數，目前的看板是依照貼文中提到的熱度（例如「快200個人來詢問」）挑選的，可以換成你知道的高流量貼文。
+Threads 匯出檔沒有按讚數和瀏覽數，目前的看板是依照貼文中提到的熱度（例如「快200個人來詢問」）和最近的重點企劃挑選的，可以換成你知道的高流量貼文。
 
 ## 網站區塊
 
@@ -120,13 +136,14 @@ Threads 匯出檔沒有按讚數和瀏覽數，目前的看板是依照貼文中
 | 里程碑 | 小路時間軸，捲動時鳳梨會沿著小路往下走 |
 | 教室相簿 | 拍立得拼貼照片牆，點開可放大瀏覽 |
 | 我的教學工具 | 自己開發的教學網站（例如「換我當老師」），資料在 `data/site.js` 的 `tools` |
+| 國中數學專區入口 | 顯示最新一回每日三題的觀念，連到國中數學專區 |
 | 教學筆記 | 9 個主題分頁、搜尋、側邊閱讀欄（可上下篇） |
 | 今日一題 | 可以直接作答的小題目，答對鳳梨會跳起來，導向數學練習場 |
 | 找到我 | Threads、Instagram、YouTube、LINE 社群 |
 
 ## 上線前：更新版本號
 
-`index.html` 和 `competitions.html` 引用 `site.css`、`site.js`、`articles.js`、`common.js` 時都帶有 `?v=版本號`。每次修改這些檔案後，把兩個頁面裡的版本號一起換成新的（例如日期），瀏覽器就會重新抓最新的檔案，訪客不用強制重新整理。
+`index.html`、`junior.html` 和 `competitions.html` 引用 `site.css`、`site.js`、`articles.js`、`daily.js`、`common.js` 時都帶有 `?v=版本號`。每次修改這些檔案後，把三個頁面裡的版本號一起換成新的（例如日期），瀏覽器就會重新抓最新的檔案，訪客不用強制重新整理。
 
 ## 上線
 

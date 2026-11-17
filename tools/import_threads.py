@@ -23,6 +23,9 @@ Threads 匯出檔的處理方式：
   --username NAME  Threads 帳號（預設從 data/site.js 的 Threads 連結讀取）
 
 分類規則寫在 data/site.js 的 categories.keywords，改那裡就能調整自動分類。
+
+「每日三題」與「本日觀念」的貼文不會進教學筆記，而是整理到 data/daily.js，
+顯示在國中數學專區（junior.html）。
 """
 
 import argparse
@@ -37,6 +40,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SITE_JS = ROOT / "data" / "site.js"
 ARTICLES_JS = ROOT / "data" / "articles.js"
+DAILY_JS = ROOT / "data" / "daily.js"
 
 TEXT_KEYS = ("title", "text", "caption")
 TIME_KEYS = ("creation_timestamp", "timestamp", "taken_at")
@@ -46,7 +50,10 @@ THREAD_GAP = 30 * 60  # 串文續篇與上一段的最大間隔（秒）
 def load_site():
     src = SITE_JS.read_text(encoding="utf-8")
     cats = []
-    for block in re.finditer(r"\{\s*id:\s*\"([^\"]+)\",\s*name:\s*\"([^\"]+)\".*?keywords:\s*\[([^\]]*)\]", src, re.S):
+    # 只讀 categories 區塊，避免把 tools 等其他有 id、name 的資料誤認成分類
+    start = src.find("categories:")
+    section = src[start:] if start >= 0 else ""
+    for block in re.finditer(r"\{\s*id:\s*\"([^\"]+)\",\s*name:\s*\"([^\"]+)\"[^{}]*?keywords:\s*\[([^\]]*)\]", section, re.S):
         cid, name, kw = block.groups()
         cats.append({"id": cid, "name": name, "keywords": re.findall(r"\"([^\"]+)\"", kw)})
     if not cats:
@@ -227,6 +234,62 @@ def write_articles(articles, out, until=0):
                    encoding="utf-8")
 
 
+# ---------- 每日三題 ----------
+YT_RE = re.compile(r"https?://(?:www\.)?(?:youtube\.com|youtu\.be)/\S+")
+
+
+def daily_kind(text):
+    """回傳 "intro"（每日三題的主文）、"concepts"（本日觀念）或 None。"""
+    head = text.lstrip()[:40]
+    if head.startswith("本日觀念"):
+        return "concepts"
+    if "每日三題" in head and "會考倒數" in text[:80]:
+        return "intro"
+    return None
+
+
+def load_daily():
+    if not DAILY_JS.exists():
+        return {}
+    m = re.search(r"window\.DAILY\s*=\s*(\[.*\]);?\s*$", DAILY_JS.read_text(encoding="utf-8"), re.S)
+    try:
+        return {d["date"]: d for d in json.loads(m.group(1))} if m else {}
+    except json.JSONDecodeError:
+        return {}
+
+
+def add_daily(days, post, kind):
+    d = days.setdefault(post["date"], {"date": post["date"], "concepts": []})
+    text = post["text"]
+    if kind == "intro":
+        m = re.search(r"會考倒數\s*(\d+)\s*天了?\s*(?:[-－—]\s*(.+))?", text)
+        if m:
+            d["countdown"] = int(m.group(1))
+            if m.group(2):
+                d["note"] = m.group(2).strip()
+    else:
+        concepts = [ln.replace("📌", "").strip() for ln in text.splitlines() if ln.strip().startswith("📌")]
+        if concepts:
+            d["concepts"] = concepts
+    videos = d.setdefault("videos", [])
+    for url in YT_RE.findall(text):
+        url = url.split("?si=")[0]
+        # 播放清單的網址常被截短而打不開，只留單支影片；專區會另外連到 YouTube 的 Shorts 頁面
+        if "playlist" in url:
+            continue
+        if url not in videos:
+            videos.append(url)
+    if not videos:
+        d.pop("videos")
+
+
+def write_daily(days):
+    items = sorted(days.values(), key=lambda d: d["date"], reverse=True)
+    DAILY_JS.write_text(
+        "// 由 tools/import_threads.py 產生：每日三題（concepts 依序是國一、國二、國三）。\n"
+        "window.DAILY = " + json.dumps(items, ensure_ascii=False, indent=1) + ";\n", encoding="utf-8")
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("input", type=Path)
@@ -247,8 +310,15 @@ def main():
     seen = {a["id"] for a in existing} | {a["text"] for a in existing}
     articles = list(existing)
     skipped = 0
+    days = load_daily()
+    daily_count = 0
     for p in posts:
         old = (until and p.get("ts", 0) <= until) or (latest and p["date"] <= latest)
+        kind = daily_kind(p["text"])
+        if kind and not old:
+            add_daily(days, p, kind)
+            daily_count += 1
+            continue
         if len(p["head"]) < args.min_length or p["id"] in seen or p["text"] in seen or old:
             skipped += 1
             continue
@@ -258,6 +328,9 @@ def main():
             a["images"] = p["images"]
         articles.append(a)
     write_articles(articles, args.out, max([until] + [p.get("ts", 0) for p in posts]))
+    if daily_count and args.out == ARTICLES_JS:
+        write_daily(days)
+        print(f"每日三題：整理了 {daily_count} 則貼文，共 {len(days)} 天，寫入 {DAILY_JS}")
 
     untagged = [a for a in articles if not a["tags"]]
     print(f"完成！共 {len(articles)} 篇文章寫入 {args.out}（略過 {skipped} 則太短、重複或已匯入的貼文）")

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pineapple-08081.github.io/pineapplemathweb/sitemap.xml
