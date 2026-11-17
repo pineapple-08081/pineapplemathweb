@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=LXGW+WenKai+TC:wght@400;700&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Huninn&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=2026.11.17-1">
+<link rel="stylesheet" href="assets/site.css?v=2026.11.17-2">
 <script>document.documentElement.classList.add('js');</script>
 </head>
 <body class="junior-page">
@@ -169,9 +169,9 @@
   </div>
 </footer>
 
-<script src="data/site.js?v=2026.11.17-1"></script>
-<script src="data/daily.js?v=2026.11.17-1"></script>
-<script src="assets/common.js?v=2026.11.17-1"></script>
+<script src="data/site.js?v=2026.11.17-2"></script>
+<script src="data/daily.js?v=2026.11.17-2"></script>
+<script src="assets/common.js?v=2026.11.17-2"></script>
 <script>
 (function(){
   const SITE = window.SITE || {}, J = SITE.junior || {}, DAILY = window.DAILY || [];
@@ -183,7 +183,6 @@
   const youtube = (SITE.links || []).find(l => l.id === 'youtube');
   const line = (SITE.links || []).find(l => l.id === 'line');
   const fmt = d => { const [y, m, dd] = d.split('-').map(Number); return `${m}/${dd}（${WEEK[new Date(y, m - 1, dd).getDay()]}）`; };
-  const ytLabel = u => /playlist/.test(u) ? '播放清單' : '一分鐘影片';
 
   $('jIntro').textContent = J.intro || '';
   $('year').textContent = new Date().getFullYear();
@@ -209,7 +208,7 @@
     return `<li class="${dim ? 'dim' : ''}"><span class="g" data-c="${GRADE_COLOR[g]}">${g}</span><span>${esc(c)}</span></li>`;
   }).join('');
   const videoLinks = d => (d.videos || []).map((u, i) =>
-    `<a href="${esc(u)}" target="_blank" rel="noopener">▶ ${ytLabel(u)}${(d.videos || []).length > 1 ? ' ' + (i + 1) : ''}</a>`).join('');
+    `<a href="${esc(u)}" target="_blank" rel="noopener">▶ 一分鐘影片${(d.videos || []).length > 1 ? ' ' + (i + 1) : ''}</a>`).join('');
 
   const latest = days[0];
   if (latest){
@@ -224,7 +223,7 @@
         : '<p class="t-wait">今天的觀念整理還沒上傳，先到 Threads 看題目吧！</p>'}
       <div class="t-actions">
         ${threads ? `<a class="btn" href="${esc(threads.url)}" target="_blank" rel="noopener">到 Threads 看題目 <span class="arr">↗</span></a>` : ''}
-        ${videoLinks(latest) ? `<span class="v-links">${videoLinks(latest)}</span>` : ''}
+        <span class="v-links">${videoLinks(latest)}${youtube && youtube.shorts ? `<a href="${esc(youtube.shorts)}" target="_blank" rel="noopener">▶ 全部一分鐘短影片</a>` : ''}</span>
       </div>`;
   } else $('today').hidden = true;
 
@@ -281,7 +280,7 @@
   /* 一起學數學 */
   const tool = (SITE.tools || [])[0];
   const more = [
-    youtube && youtube.url && { c: 'coral', ic: '<svg viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="4"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg>', name: 'YouTube 解題影片', text: '一分鐘觀念影片、段考與模擬考解題，照年級整理成播放清單。', url: youtube.url, cta: '看影片' },
+    youtube && youtube.url && { c: 'coral', ic: '<svg viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="4"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg>', name: 'YouTube 一分鐘短影片', text: '一分鐘帶你快速複習一個觀念，還有段考與模擬考的解題影片。', url: youtube.shorts || youtube.url, cta: '看短影片' },
     line && line.url && { c: 'leaf', ic: '<svg viewBox="0 0 24 24"><path d="M12 4c5 0 9 3.1 9 7s-4 7-9 7c-.8 0-1.6-.1-2.3-.2L6 20v-3.3C4.2 15.4 3 13.3 3 11c0-3.9 4-7 9-7z"/></svg>', name: line.handle || 'LINE 社群', text: '國中生的數學解題討論群，寫題目卡住了，可以拍照上來一起討論。', url: line.url, cta: '加入群組' },
     tool && { c: 'yellow', ic: '<svg viewBox="0 0 24 24"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/></svg>', name: tool.name, text: '換孩子拿紅筆當小老師批改考卷，改得出錯誤，觀念才算真的懂。（國小 3–6 年級）', url: tool.url, cta: tool.cta || '開始批改' },
     { c: 'sky', ic: '<svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></svg>', name: '數學練習場', text: '限時 200 秒的四則運算心算挑戰，暖身、練速度都適合。', url: 'practice.html', cta: '去挑戰', local: true }

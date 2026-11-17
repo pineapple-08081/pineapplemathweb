@@ -109,10 +109,7 @@ window.DAILY = [
    "弦心距"
   ],
   "countdown": 190,
-  "note": "今天星期五！！",
-  "videos": [
-   "https://youtube.com/playlist?list=PLCpXF7Z3OoX4&si=4qYPvace6kB1lAwG"
-  ]
+  "note": "今天星期五！！"
  },
  {
   "date": "2026-11-05",
@@ -135,10 +132,7 @@ window.DAILY = [
    "直線與圓的距離"
   ],
   "countdown": 192,
-  "note": "一天又過去了！",
-  "videos": [
-   "https://youtube.com/playlist?list=PLCpXF7Z3OoX4&si=xEIDroxPuWpaZkYZ"
-  ]
+  "note": "一天又過去了！"
  },
  {
   "date": "2026-11-03",
@@ -171,12 +165,7 @@ window.DAILY = [
    "簡易測量、三角函數的基本定義"
   ],
   "countdown": 195,
-  "note": "本週總結！",
-  "videos": [
-   "https://youtube.com/playlist?list=PLMQIdq7IHI4Q&si=g0ifUB-GPT9nD-by",
-   "https://youtube.com/playlist?list=PLfyKRrRgdZAY&si=_xlnZ4_gHpP_yCql",
-   "https://youtube.com/playlist?list=PLCpXF7Z3OoX4&si=lpM9FWhXgIcpR4yx"
-  ]
+  "note": "本週總結！"
  },
  {
   "date": "2026-10-31",

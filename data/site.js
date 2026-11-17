@@ -141,18 +141,15 @@ window.SITE = {
       { grade: "國一", color: "yellow", title: "倍數、質數與分數", post: "87fa1a0d81",
         topics: ["倍數判別法", "質數與標準分解式", "公因數與公倍數", "分數的四則運算", "分數的常考概念", "分數的進階考題"],
         tip: "因數、倍數和分數是國一的地基，熟悉之後，後面的方程式和比例都會輕鬆很多。",
-        videos: [{ label: "國一一分鐘觀念影片", url: "https://youtube.com/playlist?list=PLCpXF7Z3OoX4" }] },
+        videos: [{ label: "一分鐘觀念短影片", url: "https://www.youtube.com/@%E9%99%B3%E6%98%93%E5%BD%A3-e1g/shorts" }] },
       { grade: "國二", color: "sky", title: "根式與畢氏定理", post: "5629e99aaf",
         topics: ["最簡根式", "根式的近似值", "根式比大小（會考愛考）", "畢氏定理", "畢氏定理常考題型"],
         tip: "看到畢氏定理，就代表「幾何」的世界已經來臨了。除了基本的定理，最重要的是學會「下一步該怎麼走」：題目給完條件，要怎麼用這些條件找到答案。",
-        videos: [{ label: "國二一分鐘觀念影片", url: "https://youtube.com/playlist?list=PLMQIdq7IHI4Q" }] },
+        videos: [{ label: "一分鐘觀念短影片", url: "https://www.youtube.com/@%E9%99%B3%E6%98%93%E5%BD%A3-e1g/shorts" }] },
       { grade: "國三", color: "leaf", title: "簡易測量、三角比與圓", post: "7706dfc224",
         topics: ["簡易測量常考題型", "特殊三角比與三角函數", "點、直線與圓的位置關係", "圓心角與圓周角", "弧、弦、角的關係"],
         tip: "幾何的世界即將大集合。三角形「三心」教完之後，一題裡會融合國二、國三的概念，學會怎麼把概念串起來，是最重要的課題。",
-        videos: [
-          { label: "國三一分鐘觀念影片", url: "https://youtube.com/playlist?list=PLfyKRrRgdZAY" },
-          { label: "國三第一次模擬考解題", url: "https://youtube.com/playlist?list=PLHO46-mv2XWM" }
-        ] }
+        videos: [{ label: "一分鐘觀念短影片", url: "https://www.youtube.com/@%E9%99%B3%E6%98%93%E5%BD%A3-e1g/shorts" }] }
     ],
     // 國小的複習資源，放在專區最下面
     elementary: { post: "b41a8b39ab", title: "國小 3–6 年級數學重點筆記", text: "翰林、康軒、南一三大版本都有，可以自己挑對應的版本和單元。" }
@@ -161,7 +158,8 @@ window.SITE = {
   links: [
     { id: "threads",   label: "Threads",   handle: "@a_l_w_a_y_s_joy", note: "教學筆記每週更新", url: "https://www.threads.com/@a_l_w_a_y_s_joy" },
     { id: "instagram", label: "Instagram", handle: "@a_l_w_a_y_s_joy", note: "教室日常與圖文",   url: "https://www.instagram.com/a_l_w_a_y_s_joy/" },
-    { id: "youtube",   label: "YouTube",   handle: "國中數學解題影片", note: "段考檢討與觀念講解", url: "https://www.youtube.com/@%E9%99%B3%E6%98%93%E5%BD%A3-e1g" },
+    { id: "youtube",   label: "YouTube",   handle: "國中數學解題影片", note: "段考檢討與觀念講解", url: "https://www.youtube.com/@%E9%99%B3%E6%98%93%E5%BD%A3-e1g",
+      shorts: "https://www.youtube.com/@%E9%99%B3%E6%98%93%E5%BD%A3-e1g/shorts" },
     { id: "line",      label: "LINE 社群", handle: "鳳梨國中數學討論群", note: "國中生數學解題討論", url: "https://line.me/ti/g2/4U2D296ojeHdqg2w-cSXXtIlYnEkdwMPVreRdA" },
     { id: "facebook",  label: "Facebook",  handle: "", note: "", url: "" },
     { id: "email",     label: "Email",     handle: "", note: "合作與邀約", url: "" }

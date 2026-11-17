@@ -274,6 +274,9 @@ def add_daily(days, post, kind):
     videos = d.setdefault("videos", [])
     for url in YT_RE.findall(text):
         url = url.split("?si=")[0]
+        # 播放清單的網址常被截短而打不開，只留單支影片；專區會另外連到 YouTube 的 Shorts 頁面
+        if "playlist" in url:
+            continue
         if url not in videos:
             videos.append(url)
     if not videos:
