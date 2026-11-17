@@ -30,18 +30,26 @@ window.SITE = {
     { key: "邏輯", title: "把解題拆成看得懂的步驟", text: "方程式、相似形、段考好題，一步一步把思路寫清楚，孩子才真的學得會。", tag: "teaching" }
   ],
 
-  // 首頁看板：輪流展示的人氣貼文。id 對應 data/articles.js 裡的文章 id，
+  // 首頁看板：輪流展示的重點貼文。id 對應 data/articles.js 裡的文章 id，
   // image 是看板配圖，badge 是看板上的小標籤，title 可以替看板另取標題（留空就用文章第一行）。
+  // 也可以放網站裡的其他頁面或外部網站：不寫 id，改寫 href、text、cta（按鈕文字）和 color。
   featured: [
-    { id: "a37f89ac4d", image: "assets/featured/writing.webp", badge: "熱烈討論", title: "「雕字」是必要的嗎？我的寫字要求" },
+    { href: "junior.html#daily", image: "assets/featured/daily-three.webp", badge: "每天更新", meta: "國中數學專區", color: "sky",
+      title: "國中數學每日三題：每天學一點，會考不慌",
+      text: "國一、國二、國三每天各一題，跟著學校進度走，附上本日觀念和一分鐘解題影片。日積月累，讓基本概念越來越紮實。",
+      cta: "看每日三題" },
+    { id: "3429cba600", image: "assets/featured/teacher-turn.webp", badge: "新上線", title: "「換我當老師」網路版：換孩子拿紅筆改考卷" },
+    { href: "junior.html#notes", image: "assets/featured/math-notes.webp", badge: "重點筆記", meta: "國中數學專區", color: "leaf",
+      title: "國一到國三數學重點筆記，一次整理好",
+      text: "倍數與分數、根式與畢氏定理、簡易測量與圓，每個單元都有重點筆記，搭配一分鐘短影片複習觀念。",
+      cta: "看重點筆記" },
+    { id: "d1d413e0d5", image: "assets/featured/24-points.webp", badge: "數感遊戲", title: "下課前 5 分鐘玩「24 點」，練出數感" },
+    { id: "d2c0cffaf9", image: "assets/featured/team-training.webp", badge: "競賽培訓", title: "奧林匹克團體賽：賽前實體訓練開跑" },
+    { id: "0b1995d2c7", image: "assets/featured/halloween.webp", badge: "節慶活動", title: "每年萬聖節，我都變裝去接孩子放學" },
     { id: "8bd9beb67d", image: "assets/featured/worksheets.webp", badge: "近 200 人索取", title: "學生常嫌的活動單，竟然爆單了" },
     { id: "51966edaf9", image: "assets/featured/puzzle-dishes.webp", badge: "動腦挑戰", title: "除夕推理大挑戰：到底是誰煮了高麗菜？" },
-    { id: "b5cd4c91dd", image: "assets/featured/summer-village.webp", badge: "暑假企劃", title: "鳳梨村之夏日盛典：貫穿整個暑假的小任務" },
-    { id: "0dec72cd83", image: "assets/featured/newspaper.webp", badge: "免費資源", title: "每天三篇新聞閱讀測驗，帶孩子認識真實世界" },
-    { id: "9d28f3d35a", image: "assets/featured/care-puzzle.webp", badge: "帶班心法", title: "安親班裡的特殊生，我這樣陪伴" },
-    { id: "83c632349c", image: "assets/featured/walk-home.webp", badge: "暖心故事", title: "「鳳梨，謝謝你今天陪我走回家」" },
-    { id: "c3f11ff8f7", image: "assets/illustrations/math-roots.svg", badge: "給家長", title: "想救孩子的數學？先找到卡住的根源" },
-    { id: "3a5ae207a6", image: "assets/illustrations/stopwatch.svg", badge: "帶班小技巧", title: "一打多的安親班老師，最佳幫手是碼錶" }
+    { id: "a37f89ac4d", image: "assets/featured/writing.webp", badge: "熱烈討論", title: "「雕字」是必要的嗎？我的寫字要求" },
+    { id: "83c632349c", image: "assets/featured/walk-home.webp", badge: "暖心故事", title: "「鳳梨，謝謝你今天陪我走回家」" }
   ],
 
   // 里程碑（首頁時間軸）。icon 可用：heart、home、laptop、medal、star、school、video、rocket
@@ -56,6 +64,7 @@ window.SITE = {
     { date: "2026.03.07", icon: "school", title: "第一個奧數實體班開班", text: "「我不是什麼很厲害的老師，我只是一個靠著教育愛和熱忱，在努力勇敢追夢的人而已。」" },
     { date: "2026", icon: "medal", title: "學生入選 WMI 銅獎", text: "WMI 世界數學邀請賽，學生入選銅獎。希望有一天，能帶著學生站上更大的舞台。" },
     { date: "2026.10", icon: "video", title: "鳳梨老師陪你讀數學", text: "第一次線上段考檢討、開始上傳 YouTube 解題影片，國中數學解題群組也來到 84 人。" },
+    { date: "2026.10.29", icon: "laptop", title: "「換我當老師」上線、每日三題開跑", text: "讓孩子當小老師批改考卷的複習網站正式上線；同一天開始每天分享國一到國三的「每日三題」。" },
     { date: "下一站", icon: "rocket", title: "11/22 奧林匹克數學團體競賽", text: "新的一屆小中組、小高組正在努力培訓，11 月 22 日（日）出賽。下一個里程碑，正在路上！" }
   ],
 
@@ -87,7 +96,7 @@ window.SITE = {
       { title: "桌遊與動手操作", text: "數學更著重在體驗。奧數課裡有桌遊和操作，孩子自己做出來的那一刻，才是學習的開始。" }
     ],
     // 培訓日記：對應 data/articles.js 的文章 id，會連到首頁的文章閱讀頁
-    diary: ["7eeb880bd7", "895f37191a", "e9e09a562d", "90105e8232", "459205d730"],
+    diary: ["d2c0cffaf9", "e4f76ac887", "7eeb880bd7", "895f37191a", "e9e09a562d", "90105e8232", "459205d730"],
     // 比賽相簿：依年份分組。fit: "contain" 代表完整顯示不裁切（適合截圖）；size 多了 "half"（半版）和 "strip"（滿版長條）
     albums: [
       { year: "2024", title: "奧林匹克數學團體競賽", results: ["銅獎 × 1"], photos: [
@@ -123,6 +132,31 @@ window.SITE = {
       post: "422efb1081"
     }
   ],
+
+  // 國中數學專區（junior.html）。每日三題的資料在 data/daily.js，由匯入工具自動整理。
+  junior: {
+    intro: "給國中生和家長的數學複習角落：每天三題跟上學校進度，重點筆記搭配一分鐘短影片，把基本觀念一個一個補起來。",
+    exam: { date: "2027-05-15", label: "2027 國中教育會考" },
+    notes: [
+      { grade: "國一", color: "yellow", title: "倍數、質數與分數", post: "87fa1a0d81",
+        topics: ["倍數判別法", "質數與標準分解式", "公因數與公倍數", "分數的四則運算", "分數的常考概念", "分數的進階考題"],
+        tip: "因數、倍數和分數是國一的地基，熟悉之後，後面的方程式和比例都會輕鬆很多。",
+        videos: [{ label: "國一一分鐘觀念影片", url: "https://youtube.com/playlist?list=PLCpXF7Z3OoX4" }] },
+      { grade: "國二", color: "sky", title: "根式與畢氏定理", post: "5629e99aaf",
+        topics: ["最簡根式", "根式的近似值", "根式比大小（會考愛考）", "畢氏定理", "畢氏定理常考題型"],
+        tip: "看到畢氏定理，就代表「幾何」的世界已經來臨了。除了基本的定理，最重要的是學會「下一步該怎麼走」：題目給完條件，要怎麼用這些條件找到答案。",
+        videos: [{ label: "國二一分鐘觀念影片", url: "https://youtube.com/playlist?list=PLMQIdq7IHI4Q" }] },
+      { grade: "國三", color: "leaf", title: "簡易測量、三角比與圓", post: "7706dfc224",
+        topics: ["簡易測量常考題型", "特殊三角比與三角函數", "點、直線與圓的位置關係", "圓心角與圓周角", "弧、弦、角的關係"],
+        tip: "幾何的世界即將大集合。三角形「三心」教完之後，一題裡會融合國二、國三的概念，學會怎麼把概念串起來，是最重要的課題。",
+        videos: [
+          { label: "國三一分鐘觀念影片", url: "https://youtube.com/playlist?list=PLfyKRrRgdZAY" },
+          { label: "國三第一次模擬考解題", url: "https://youtube.com/playlist?list=PLHO46-mv2XWM" }
+        ] }
+    ],
+    // 國小的複習資源，放在專區最下面
+    elementary: { post: "b41a8b39ab", title: "國小 3–6 年級數學重點筆記", text: "翰林、康軒、南一三大版本都有，可以自己挑對應的版本和單元。" }
+  },
 
   links: [
     { id: "threads",   label: "Threads",   handle: "@a_l_w_a_y_s_joy", note: "教學筆記每週更新", url: "https://www.threads.com/@a_l_w_a_y_s_joy" },
